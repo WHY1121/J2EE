@@ -9,7 +9,19 @@
 		<id name="id">
             <generator class="native"/>
 		</id>
+		<property name="loginName"/>
+		<property name="password"/>
 		<property name="name"/>
+		<property name="gender"/>
+		<property name="phoneNumber"/>
+		<property name="email"/>
+		<property name="description"/>
+		<!--roles属性，本类与Role为多对多关系  -->
+		
+		<!--department属性，本类与Department属性为一对一关系  -->
+		
+		
+		
 	</class>
 	
 </hibernate-mapping>
