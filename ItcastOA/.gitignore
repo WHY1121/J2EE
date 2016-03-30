@@ -1,0 +1,6 @@
+*.myeclipse
+*.settings
+*.classpath
+*.myhibernatedata
+*.mymetadata
+*.project
