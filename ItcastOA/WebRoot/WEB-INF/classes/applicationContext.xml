@@ -7,7 +7,7 @@
 
 
 	<!-- 自动扫描与装配bean -->
-	<context:component-scan base-package="cn.itcast.oa"></context:component-scan>
+	<context:component-scan base-package="cn.itcast.oa"/>
 
 
 	<!-- 加载外部的properties配置文件 -->

@@ -11,6 +11,8 @@ import cn.itcast.oa.dao.RoleDao;
 import cn.itcast.oa.domain.Role;
 import cn.itcast.oa.service.RoleService;
 
+@Service
+@Transactional
 public class RoleServiceImpl implements RoleService{
     
 	@Resource

@@ -8,6 +8,8 @@
 	<constant name="struts.devMode" value="true" />
 	<!-- 配置扩展名为action -->
 	<constant name="struts.action.extension" value="action" />
+	<!-- 配置主题 -->
+	<constant name="struts.ui.theme" value="simple"/>
 
 
 

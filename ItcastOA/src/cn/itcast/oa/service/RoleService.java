@@ -1,15 +1,8 @@
 package cn.itcast.oa.service;
 
 import java.util.List;
-
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import cn.itcast.oa.domain.Role;
 
-
-@Service
-@Transactional
 public interface RoleService {
     /**
      * 查询岗位列表

@@ -24,7 +24,6 @@ public class RoleAction extends ActionSupport implements ModelDriven<Role> {
 	private Role model=new Role();
 	@Override
 	public Role getModel() {
-		// TODO Auto-generated method stub
 		return model;
 	}
 	
@@ -50,7 +49,7 @@ public class RoleAction extends ActionSupport implements ModelDriven<Role> {
 	 */
 	public String delete() throws Exception {
 		roleService.delete(model.getId());
-		return "delete";
+		return "toList";
 	}
     /**
      * 增加
@@ -76,8 +75,7 @@ public class RoleAction extends ActionSupport implements ModelDriven<Role> {
       * @throws Exception
       */
 	public String edit() throws Exception {
-        Role role=roleService.getById(model.getId());
-        ActionContext.getContext().put("role", role);
+		roleService.edit(model);
 		return "toList";
 	}
 	  /**
@@ -86,7 +84,9 @@ public class RoleAction extends ActionSupport implements ModelDriven<Role> {
      * @throws Exception
      */
 	public String editUI() throws Exception {
-        roleService.edit(model);
+        
+        Role role=roleService.getById(model.getId());
+        ActionContext.getContext().getValueStack().push(role);
 		return "editUI";
 	}
 	
