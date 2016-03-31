@@ -25,7 +25,7 @@
 		<!--初始化时获取三个连接，取值应在minPoolSize与maxPoolSize之间。Default: 3 -->
 		<property name="initialPoolSize" value="3"></property>
 		<!--连接池中保留的最小连接数。Default: 3 -->
-		<property name="minPoolSize" value="3"></property>
+		<property name="minPoolSize" value="2"></property>
 		<!--连接池中保留的最大连接数。Default: 15 -->
 		<property name="maxPoolSize" value="5"></property>
 		<!--当连接池中的连接耗尽的时候c3p0一次同时获取的连接数。Default: 3 -->
