@@ -17,12 +17,12 @@
 		<property name="email"/>
 		<property name="description"/>
 		<!--roles属性，本类与Role为多对多关系  -->
-		<set name="roles" table="user_role">
-		<key column="user_id"></key>
-		<many-to-many class="cn.itcast.oa.domain.Role" column="role_id"></many-to-many>
+		<set name="roles" table="itcast_user_role">
+		<key column="userId"></key>
+		<many-to-many class="Role" column="roleId"></many-to-many>
 		</set>
-		<!--department属性，本类与Department属性为一对一关系  -->
-		
+		<!--department属性，本类与Department属性为多对一关系  -->
+		<many-to-one name="department" class="Department" column="departmentId"></many-to-one>
 		
 		
 	</class>

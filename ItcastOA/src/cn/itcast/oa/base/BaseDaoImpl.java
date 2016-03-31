@@ -23,7 +23,6 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 				.getGenericSuperclass();
 		this.clazz = (Class) paType.getActualTypeArguments()[0];
 		
-		System.out.println("clazz="+clazz.getName());
 	}
 
 	@Override

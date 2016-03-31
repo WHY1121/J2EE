@@ -5,20 +5,25 @@
 
 <struts>
 	<!-- 配置为开发模式 -->
-    <constant name="struts.devMode" value="true" />
+	<constant name="struts.devMode" value="true" />
 	<!-- 配置扩展名为action -->
-    <constant name="struts.action.extension" value="action" />
+	<constant name="struts.action.extension" value="action" />
 
 
 
-    <package name="default" namespace="/" extends="struts-default">
-		
+	<package name="default" namespace="/" extends="struts-default">
+
 		<!-- 测试用的action，当与Spring整合后，class属性写的就是Spring中bean的名称 -->
 		<action name="test" class="testAction">
 			<result name="success">/test.jsp</result>
 		</action>
-
-
-    </package>
+		<!-- 岗位管理 -->
+		<action name="roleAction_*" class="roleAction" method="{1}">
+			<result name="list">/WEB-INF/jsp/roleAction/list.jsp</result>
+			<result name="addUI">/WEB-INF/jsp/roleAction/addUI.jsp</result>
+			<result name="editUI">/WEB-INF/jsp/roleAction/editUI.jsp</result>
+			<result name="toList" type="redirectAction">roleAction_list</result>
+		</action>
+	</package>
 
 </struts>
