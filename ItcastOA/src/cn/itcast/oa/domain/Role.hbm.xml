@@ -13,6 +13,10 @@
 		<property name="description"/>
 		
 		<!-- users属性，本类与User多对多关系 -->
+		<set name="users" table="user_role">
+		<key column="role_id"></key>
+		<many-to-many class="cn.itcast.oa.domain.User" column="user_id"></many-to-many>
+		</set>
 	</class>
 	
 </hibernate-mapping>

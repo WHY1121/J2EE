@@ -12,7 +12,7 @@
 		<property name="name"/>
 		<property name="description"/>
 		
-		<!--users属性，本类与User为多对多的关系 -->
+		<!--users属性，本类与User为一对对的关系 -->
 		
 		<!--parent属性，本类与Department(上级)为多对一的关系 -->
 		
