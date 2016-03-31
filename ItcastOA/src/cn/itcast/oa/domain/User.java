@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * 用户JavaBean
+ * 实体：实体用户
  * @author why
  * 
  */
