@@ -27,7 +27,7 @@
 			<result name="toList" type="redirectAction">roleAction_list</result>
 		</action>
 		<!-- 部门管理 -->
-		<action name="departmentAction_*" class="roleAction" method="{1}">
+		<action name="departmentAction_*" class="departmentAction" method="{1}">
 			<result name="list">/WEB-INF/jsp/departmentAction/list.jsp</result>
 			<result name="addUI">/WEB-INF/jsp/departmentAction/addUI.jsp</result>
 			<result name="editUI">/WEB-INF/jsp/departmentAction/editUI.jsp</result>

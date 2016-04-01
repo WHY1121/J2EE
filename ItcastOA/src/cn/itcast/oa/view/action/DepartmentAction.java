@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import cn.itcast.oa.dao.DepartmentDao;
@@ -15,6 +16,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 @Controller
+@Scope("prototype")
 public class DepartmentAction extends ActionSupport implements ModelDriven<Department>{
       
 	@Resource

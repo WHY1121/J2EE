@@ -39,7 +39,6 @@
         <tbody id="TableData" class="dataContainer" datakey="roleList">
         <s:iterator value="#roleList">
 			<tr class="TableDetail1 template">
-			<td>${id}</td>
 				<td>${name}&nbsp;</td>
 				<td>${description}&nbsp;</td>
        
