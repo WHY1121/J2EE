@@ -8,8 +8,11 @@ import javax.annotation.Resource;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.classic.Session;
+import org.springframework.transaction.annotation.Transactional;
 
 @SuppressWarnings("unchecked")
+//@Transactional注解可以被继承，即对子类也有效
+@Transactional
 public class BaseDaoImpl<T> implements BaseDao<T> {
 
 	@Resource
@@ -44,7 +47,9 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 
 	@Override
 	public T getById(Long id) {
-
+		if(id==null){
+			return null;
+		}
 		return (T) getSession().get(clazz, id);
 	}
 
@@ -57,7 +62,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 		}
 
 		return getSession().createQuery(//
-				"FROM " + clazz.getName() + " WHERE ids IN(:ids)")
+				"FROM " + clazz.getName() + " WHERE id IN(:ids)")
 				.setParameterList("ids", ids).list();
 	}
 

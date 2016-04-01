@@ -2,31 +2,18 @@ package cn.itcast.oa.view.action;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import cn.itcast.oa.dao.DepartmentDao;
+import cn.itcast.oa.base.BaseAction;
 import cn.itcast.oa.domain.Department;
-import cn.itcast.oa.service.DepartmentService;
-
 import com.opensymphony.xwork2.ActionContext;
-import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.ModelDriven;
+
 
 @Controller
 @Scope("prototype")
-public class DepartmentAction extends ActionSupport implements ModelDriven<Department>{
-      
-	@Resource
-	private  DepartmentService departmentService;
-	
-	private Department model=new Department();
-	@Override
-	public Department getModel() {
-		return model;
-	}
+public class DepartmentAction extends BaseAction<Department>{
+    
 	
 	public String list() throws Exception{
 		List<Department> deList=departmentService.findAll();
@@ -50,7 +37,7 @@ public class DepartmentAction extends ActionSupport implements ModelDriven<Depar
 		return "editUI";
 	}
 	public String edit() throws Exception{
-		departmentService.edit(model);
+		departmentService.update(model);
 		return "toList";
 	}
 

@@ -2,35 +2,18 @@ package cn.itcast.oa.view.action;
 
 import java.util.List;
 
-
-import javax.annotation.Resource;
-
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
-
+import cn.itcast.oa.base.BaseAction;
 import cn.itcast.oa.domain.Role;
-import cn.itcast.oa.service.RoleService;
-
 import com.opensymphony.xwork2.ActionContext;
-import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.ModelDriven;
+
 
 
 @Controller
 @Scope("prototype")
-public class RoleAction extends ActionSupport implements ModelDriven<Role> {
+public class RoleAction extends BaseAction<Role> {
 	
-	
-	private Role model=new Role();
-	@Override
-	public Role getModel() {
-		return model;
-	}
-	
-	
-	
-	@Resource
-	private RoleService roleService;
      
 	/**
 	 * 列表
@@ -75,7 +58,7 @@ public class RoleAction extends ActionSupport implements ModelDriven<Role> {
       * @throws Exception
       */
 	public String edit() throws Exception {
-		roleService.edit(model);
+		roleService.update(model);
 		return "toList";
 	}
 	  /**

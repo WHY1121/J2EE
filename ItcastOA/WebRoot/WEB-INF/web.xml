@@ -16,7 +16,15 @@
 		<param-value>classpath:applicationContext*.xml</param-value>
 	</context-param>
 
-
+	<!-- 配置Spring的OpenSessionInViewFilter，以解决懒加载异常的问题 -->
+	<filter>
+		<filter-name>OpenSessionInViewFilter</filter-name>
+		<filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>OpenSessionInViewFilter</filter-name>
+		<url-pattern>*.action</url-pattern>
+	</filter-mapping>
 	<!-- 配置Struts2的主过滤器 -->
 	<filter>
 		<filter-name>struts2</filter-name>

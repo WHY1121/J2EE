@@ -33,6 +33,13 @@
 			<result name="editUI">/WEB-INF/jsp/departmentAction/editUI.jsp</result>
 			<result name="toList" type="redirectAction">departmentAction_list</result>
 		</action>
+		<!-- 用户管理 -->
+		<action name="userAction_*" class="userAction" method="{1}">
+			<result name="list">/WEB-INF/jsp/userAction/list.jsp</result>
+			<result name="addUI">/WEB-INF/jsp/userAction/addUI.jsp</result>
+			<result name="editUI">/WEB-INF/jsp/userAction/editUI.jsp</result>
+			<result name="toList" type="redirectAction">userAction_list</result>
+		</action>
 	</package>
 
 </struts>
