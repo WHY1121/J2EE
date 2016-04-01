@@ -14,6 +14,8 @@ import com.opensymphony.xwork2.ActionContext;
 @Scope("prototype")
 public class DepartmentAction extends BaseAction<Department>{
     
+	private Long parentId;
+	
 	
 	public String list() throws Exception{
 		List<Department> deList=departmentService.findAll();
@@ -37,8 +39,21 @@ public class DepartmentAction extends BaseAction<Department>{
 		return "editUI";
 	}
 	public String edit() throws Exception{
-		departmentService.update(model);
+		Department department=departmentService.getById(model.getId());
+		department.setName(model.getName());
+		department.setDescription(model.getDescription());
+		department.setParent(departmentService.getById(parentId));
+		departmentService.update(department);
 		return "toList";
+	}
+	
+	
+	//========================================
+	public Long getParentId() {
+		return parentId;
+	}
+	public void setParentId(Long parentId) {
+		this.parentId = parentId;
 	}
 
 }

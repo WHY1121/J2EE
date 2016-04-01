@@ -58,7 +58,11 @@ public class RoleAction extends BaseAction<Role> {
       * @throws Exception
       */
 	public String edit() throws Exception {
-		roleService.update(model);
+		//我疑惑的地方
+		Role role=roleService.getById(model.getId());
+		role.setName(model.getName());
+		role.setDescription(model.getDescription());
+		roleService.update(role);
 		return "toList";
 	}
 	  /**
