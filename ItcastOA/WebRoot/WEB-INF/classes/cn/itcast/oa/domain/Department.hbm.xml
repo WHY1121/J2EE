@@ -21,7 +21,7 @@
 		<many-to-one name="parent" class="Department" column="parentId"></many-to-one>
 		
 		<!--children属性，本类与Department(下级)为一对多的关系 -->
-		<set name="children">
+		<set name="children" order-by="id">
 		<key column="parentId"></key>
 		<one-to-many class="Department"/>
 		</set>

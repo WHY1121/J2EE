@@ -41,10 +41,10 @@
         <tbody id="TableData" class="dataContainer" datakey="departmentList">
         <s:iterator value="#deList">
 			<tr class="TableDetail1 template">
-				<td><a href="_list_level2.html">${name}</a>&nbsp;</td>
+				<td><s:a action="departmentAction_list?parentId=%{id}">${name}</s:a>&nbsp;</td>
 				<td>${parent.name}&nbsp;</td>
 				<td>${description}&nbsp;</td>
-				<td><s:a action="departmentAction_delete?id=%{id}" onClick="return window.confirm('这将删除所有的下级部门，您确定要删除吗？')" >删除</s:a>
+				<td><s:a action="departmentAction_delete?id=%{id}&parentId=%{parent.id}" onClick="return window.confirm('这将删除所有的下级部门，您确定要删除吗？')" >删除</s:a>
 					<s:a action="departmentAction_editUI?id=%{id}">修改</s:a>
 				</td>
 			</tr>
@@ -55,7 +55,11 @@
     <!-- 其他功能超链接 -->
     <div id="TableTail">
         <div id="TableTail_inside">
-            <s:a action="departmentAction_addUI"><img src="${pageContext.request.contextPath}/style/images/createNew.png" /></s:a>
+            <s:a action="departmentAction_addUI?parentId=%{parentId}">
+            <img src="${pageContext.request.contextPath}/style/images/createNew.png" /></s:a>
+              <s:if test="#parent != null">
+				<s:a action="departmentAction_list?parentId=%{#parent.parent.id}">返回上一级</s:a>
+            </s:if>
         </div>
     </div>
 </div>

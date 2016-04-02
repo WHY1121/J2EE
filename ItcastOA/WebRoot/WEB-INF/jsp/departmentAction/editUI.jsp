@@ -35,15 +35,10 @@
             <div class="ItemBlock">
                 <table cellpadding="0" cellspacing="0" class="mainForm">
                     <tr><td width="100">上级部门</td>
-                        <td><select name="parentId" class="SelectStyle">
-                                <option value="0" selected="selected">请选择部门</option>
-                                <option value="7">┠总经理室</option>
-                                <option value="1">┠市场部</option>
-                                <option value="2">　┠咨询部</option>
-                                <option value="3">　┠招生部</option>
-                                <option value="4">┠教学部</option>
-                                <option value="5">┠后勤部</option>
-                            </select>
+                        <td>
+                         <s:select name="parentId" cssClass="SelectStyle"
+                             list="#dList" listKey="id" listValue="name"
+                             headerKey="" headerValue="请选择部门"></s:select>
                         </td>
                     </tr>
                     <tr><td>部门名称</td>

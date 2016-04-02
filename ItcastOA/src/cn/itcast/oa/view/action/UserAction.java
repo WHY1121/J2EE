@@ -13,6 +13,7 @@ import cn.itcast.oa.base.BaseAction;
 import cn.itcast.oa.domain.Department;
 import cn.itcast.oa.domain.Role;
 import cn.itcast.oa.domain.User;
+import cn.itcast.oa.util.DepartmentUtil;
 
 import com.opensymphony.xwork2.ActionContext;
 
@@ -39,8 +40,9 @@ public class UserAction extends BaseAction<User> {
 	 * @throws Exception
 	 */
 	public String addUI() throws Exception {
-		//TODO 部门显示树状结构
-		List<Department> dList=departmentService.findAll();
+		//部门显示树状结构
+        List<Department> topList=departmentService.findTopList();
+		List<Department> dList=DepartmentUtil.getAllDepartment(topList);
 		List<Role> roleList=roleService.findAll();
 		ActionContext.getContext().put("dList", dList);
 		ActionContext.getContext().put("roleList", roleList);		
@@ -75,7 +77,10 @@ public class UserAction extends BaseAction<User> {
      * @throws Exception
      */
 	public String editUI() throws Exception {
-		List<Department> dList=departmentService.findAll();
+		List<Department> topList=departmentService.findTopList();
+		
+		List<Department> dList=DepartmentUtil.getAllDepartment(topList);
+		
 		List<Role> roleList=roleService.findAll();
 		User user=userService.getById(model.getId());
 		ActionContext.getContext().put("dList", dList);
