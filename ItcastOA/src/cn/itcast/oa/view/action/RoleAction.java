@@ -1,10 +1,15 @@
 package cn.itcast.oa.view.action;
 
+import java.util.HashSet;
 import java.util.List;
+
+import javax.jms.Session;
+import javax.swing.text.html.ListView;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import cn.itcast.oa.base.BaseAction;
+import cn.itcast.oa.domain.Priviledge;
 import cn.itcast.oa.domain.Role;
 import com.opensymphony.xwork2.ActionContext;
 
@@ -14,7 +19,7 @@ import com.opensymphony.xwork2.ActionContext;
 @Scope("prototype")
 public class RoleAction extends BaseAction<Role> {
 	
-     
+     private Long[] priviledgeIds;
 	/**
 	 * 列表
 	 * @return
@@ -76,7 +81,48 @@ public class RoleAction extends BaseAction<Role> {
         ActionContext.getContext().getValueStack().push(role);
 		return "editUI";
 	}
-	
+	 /**
+     * 修改权限
+     * @return
+     * @throws Exception
+     */
+	public String setPriviledge() throws Exception {
+		//获取源对象
+	    Role role=roleService.getById(model.getId());
+	    //获取权限id
+		List<Priviledge> priviledges=priviledgeService.getByIds(priviledgeIds);
+		role.setPriviledges(new HashSet<Priviledge>(priviledges));
+		roleService.update(role);
+		return "toList";
+	}
+	  /**
+    * 设置权限页面
+    * @return
+    * @throws Exception
+    */
+	public String setPriviledgeUI() throws Exception {
+       //返回权限数据
+	   List<Priviledge> priviledges=priviledgeService.findAll();
+	   ActionContext.getContext().put("priviledges", priviledges);
+	   //显示为岗位安排权限
+       Role role=roleService.getById(model.getId());
+       ActionContext.getContext().put("role", role);
+       //回显数据
+       priviledgeIds=new Long[role.getPriviledges().size()];
+       int index=0;
+       for(Priviledge priviledge:role.getPriviledges()){
+    	   priviledgeIds[index++]=priviledge.getId();  
+       }
+       ActionContext.getContext().getValueStack().push(priviledges);
+		return "setPriviledgeUI";
+	}
+	//===============================
+	public Long[] getPriviledgeIds() {
+		return priviledgeIds;
+	}
+	public void setPriviledgeIds(Long[] priviledgeIds) {
+		this.priviledgeIds = priviledgeIds;
+	}
 	
 
 

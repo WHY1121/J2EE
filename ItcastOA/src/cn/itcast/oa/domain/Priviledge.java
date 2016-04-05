@@ -27,6 +27,17 @@ public class Priviledge {
 	
 	
 	
+	public Priviledge() {
+		
+	}
+
+	public Priviledge(String url, String name, String icon, Priviledge parent) {
+		this.url = url;
+		this.name = name;
+		this.icon = icon;
+		this.parent = parent;
+	}
+
 	public Long getId() {
 		return id;
 	}
