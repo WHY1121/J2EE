@@ -17,6 +17,11 @@
 		<key column="roleId"></key>
 		<many-to-many class="User" column="userId"></many-to-many>
 		</set>
+		<!-- priviledges属性，本类与Priviledge为多对对的关系 -->
+		<set name="priviledges" table="itcast_role_priviledge">
+		<key column="roleId"></key>
+		<many-to-many class="Priviledge" column="priviledgeId"></many-to-many>
+		</set>
 	</class>
 	
 </hibernate-mapping>

@@ -18,6 +18,7 @@
 	<mapping resource="cn/itcast/oa/domain/User.hbm.xml" />
 	<mapping resource="cn/itcast/oa/domain/Department.hbm.xml" />
 	<mapping resource="cn/itcast/oa/domain/Role.hbm.xml" />
+	<mapping resource="cn/itcast/oa/domain/Priviledge.hbm.xml" />
 
 
 </session-factory>

@@ -8,7 +8,7 @@ import java.util.Set;
  * @author Why
  *
  */
-public class Privilege {
+public class Priviledge {
 	
 	private Long id;
 	
@@ -18,15 +18,23 @@ public class Privilege {
 	
 	private String icon;//图片名字
 	
-	private Privilege parent;//父亲接点
+	private Priviledge parent;//父亲接点
 	
-	private Set<Privilege> children = new HashSet<Privilege>(); ;//孩子
+	private Set<Priviledge> children = new HashSet<Priviledge>(); ;//孩子
 	
 	private Set<Role> roles = new HashSet<Role>();//岗位
 
 	
 	
 	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public String getUrl() {
 		return url;
 	}
@@ -50,20 +58,21 @@ public class Privilege {
 	public void setIcon(String icon) {
 		this.icon = icon;
 	}
+    
 
-	public Privilege getParent() {
+	public Priviledge getParent() {
 		return parent;
 	}
 
-	public void setParent(Privilege parent) {
+	public void setParent(Priviledge parent) {
 		this.parent = parent;
 	}
 
-	public Set<Privilege> getChildren() {
+	public Set<Priviledge> getChildren() {
 		return children;
 	}
 
-	public void setChildren(Set<Privilege> children) {
+	public void setChildren(Set<Priviledge> children) {
 		this.children = children;
 	}
 

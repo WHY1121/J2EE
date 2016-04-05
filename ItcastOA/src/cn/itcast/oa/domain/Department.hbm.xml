@@ -5,7 +5,7 @@
 
 <hibernate-mapping package="cn.itcast.oa.domain">
 
-	<class name="Department" table="itcast_Department">
+	<class name="Department" table="itcast_department">
 		<id name="id">
             <generator class="native"/>
 		</id>

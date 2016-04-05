@@ -15,7 +15,7 @@ public class Role {
 	private String description;
 	private Set<User> users = new HashSet<User>();
 	
-	private Set<Privilege> privileges=new HashSet<Privilege>();
+	private Set<Priviledge> priviledges=new HashSet<Priviledge>();
 
 	public Long getId() {
 		return id;
@@ -48,5 +48,14 @@ public class Role {
 	public void setUsers(Set<User> users) {
 		this.users = users;
 	}
+
+	public Set<Priviledge> getPriviledges() {
+		return priviledges;
+	}
+
+	public void setPriviledges(Set<Priviledge> priviledges) {
+		this.priviledges = priviledges;
+	}
+	
 
 }
