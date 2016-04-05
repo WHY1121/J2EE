@@ -102,8 +102,8 @@ public class RoleAction extends BaseAction<Role> {
     */
 	public String setPriviledgeUI() throws Exception {
        //返回权限数据
-	   List<Priviledge> priviledges=priviledgeService.findAll();
-	   ActionContext.getContext().put("priviledges", priviledges);
+	   List<Priviledge> topPriviledges=priviledgeService.findTopList();
+	   ActionContext.getContext().put("topPriviledges", topPriviledges);
 	   //显示为岗位安排权限
        Role role=roleService.getById(model.getId());
        ActionContext.getContext().put("role", role);
@@ -113,7 +113,7 @@ public class RoleAction extends BaseAction<Role> {
        for(Priviledge priviledge:role.getPriviledges()){
     	   priviledgeIds[index++]=priviledge.getId();  
        }
-       ActionContext.getContext().getValueStack().push(priviledges);
+       ActionContext.getContext().getValueStack().push(priviledgeIds);
 		return "setPriviledgeUI";
 	}
 	//===============================

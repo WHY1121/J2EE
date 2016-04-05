@@ -3,8 +3,39 @@
 <head>
 <title>配置权限</title>
  <%@ include file="/WEB-INF/jsp/public/common.jsp" %>
-
-	
+ 	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/style/blue/file.css" />
+	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/script/jquery_treeview/jquery.treeview.css" />
+     <script language="javascript" src="${pageContext.request.contextPath}/script/jquery_treeview/jquery.treeview.js"></script>
+     <script type="text/javascript">
+     $(function(){
+        //给所有复选框增加单击事件
+        $("[name=priviledgeIds]").click(function(){
+           //自己选中和取消时候，所有下级也要选中和取消
+           $(this).siblings("ul").find("input").attr('checked',this.checked);
+           
+           //选中一个权限得时候，选中直系所有权限
+           if(this.checked){
+              $(this).parents("li").children("input").attr('checked',true);
+            }else{
+               //当取消一个权限的时候，其同级没有选项的时候，上级也要取消
+               if($(this).parent().siblings("li").children("input:checked").size() == 0){
+               $(this).parent().parent().siblings("input").attr('checked',false);
+               
+               var start=$(this).parent().parent();
+               if(start.parent().siblings("li").children("input:checked").size() == 0){
+                 start.parent().parent().siblings("input").attr('checked',false);
+                
+                }
+               
+                
+               }
+             }
+         
+            
+        });
+                   
+     });    
+     </script>
 </head>
 <body>
 
@@ -36,7 +67,7 @@
 						<tr align="LEFT" valign="MIDDLE" id="TableTitle">
 							<td width="300px" style="padding-left: 7px;">
 								<!-- 如果把全选元素的id指定为selectAll，并且有函数selectAll()，就会有错。因为有一种用法：可以直接用id引用元素 -->
-								<input type="CHECKBOX" id="cbSelectAll" onClick="selectAll(this.checked)"/>
+								<input type="CHECKBOX" id="cbSelectAll" onClick="$('[name=priviledgeIds]').attr('checked',this.checked)"/>
 								<label for="cbSelectAll">全选</label>
 							</td>
 						</tr>
@@ -47,14 +78,48 @@
 						<tr class="TableDetail1">
 							<!-- 显示权限树 -->
 							<td>
-                                <s:checkboxlist name="priviledgeIds" list="#priviledges" listKey="id" listValue="name"></s:checkboxlist>
+							<%--sturct2定义的标签
+                                <s:checkboxlist name="priviledgeIds" list="#priviledges" 
+                                listKey="id" listValue="name"></s:checkboxlist>
+                              --%>
+                              <%--直接显示html --%>
+                              <!-- 第一级-->
+                              <ul id="root">
+                              <s:iterator value="#topPriviledges">
+                                  <li>
+                                  <input type="checkbox" name="priviledgeIds" value="${id}" id="cd_${id}" <s:property value="%{id in priviledgeIds ? 'checked':''}"/>>
+                                  <label for="cd_${id}"><span class="folder">${ name }</span></label>
+                                    <ul>
+                                    <!-- 第二级-->
+                                     <s:iterator value="children">
+                                        <li>
+                                         <input type="checkbox" name="priviledgeIds" value="${id}" id="cd_${id}" <s:property value="%{id in priviledgeIds ? 'checked':''}"/>>
+                                         <label for="cd_${id}">><span class="folder">${ name }</span></label>
+                                         
+                                              <ul>
+                                              <!-- 第三级-->
+                                             <s:iterator value="children">
+                                                 <li>
+                                                  <input type="checkbox" name="priviledgeIds" value="${id}" id="cd_${id}" <s:property value="%{id in priviledgeIds ? 'checked':''}"/>>
+                                                 <label for="cd_${id}">><span class="folder">${ name }</span></label>
+                                                 </li>
+                                             </s:iterator>
+                                             </ul>
+                                         </li>
+                                      </s:iterator>
+                                     </ul>
+                                 </li>
+                              </s:iterator>
+                              </ul>
                             </td>
 						</tr>
 					</tbody>
                 </table>
             </div>
         </div>
-        
+        <script type="text/javascript">
+            $("#root").treeview();
+        </script>
         <!-- 表单操作 -->
         <div id="InputDetailBar">
             <input type="image" src="${pageContext.request.contextPath}/style/images/save.png"/>
