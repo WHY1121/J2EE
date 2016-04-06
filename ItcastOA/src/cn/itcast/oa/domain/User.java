@@ -20,7 +20,38 @@ public class User {
 	private String phoneNumber; // 电话号码
 	private String email; // 电子邮件
 	private String description; // 说明
+    
+	
+	
+	/**
+	 * 根据权限明判断有没有该权限
+	 * @param name
+	 * @return
+	 */
+	public boolean hasPriviledgeByName(String priviledgeName) {
+		/**
+		 *超级管理员
+		 */
+		if (isAdmin()) {
+			return true;
+		}
+	   //普通用户
+		for (Role role : roles) {
+			for (Priviledge priviledge : role.getPriviledges()) {
+				if (priviledge.getName().equals(priviledgeName)) {
+					return true;
+				}
+			}
+		}
 
+		return false;
+
+	}
+	
+	private boolean isAdmin() {
+		
+		return "admin".equals(loginName);
+	}
 	public Long getId() {
 		return id;
 	}

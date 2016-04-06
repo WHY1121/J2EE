@@ -29,7 +29,7 @@
 		</div>
 		
         <div id="Head1Right_SystemButton">
-            <a target="_parent" href="System_User/logout.html">
+            <a target="_parent" href="${pageContext.request.contextPath}/userAction_logout.action">
 				<img width="78" height="20" alt="退出系统" src="${pageContext.request.contextPath}/style/blue/images/top/logout.gif" />
 			</a>
         </div>

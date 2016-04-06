@@ -15,6 +15,11 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:applicationContext*.xml</param-value>
 	</context-param>
+	
+	<!-- 配置监听器，初始化菜单 -->
+	<listener>
+	      <listener-class>cn.itcast.oa.listener.InitServletContextListener</listener-class>
+	</listener>
 
 	<!-- 配置Spring的OpenSessionInViewFilter，以解决懒加载异常的问题 -->
 	<filter>

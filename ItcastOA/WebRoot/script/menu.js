@@ -17,10 +17,10 @@ function closeMenu() {
 	alreadyOpenTableId = null;
 }
 
-	function menuClick(topMenuDiv){
-		$(".MenuLevel2").not( $(topMenuDiv).siblings("ul") ).hide();
-		$(topMenuDiv).siblings("ul").toggle();
-	}
+//function menuClick(topMenuDiv){
+//		$(".MenuLevel2").not( $(topMenuDiv).siblings("ul") ).hide();
+//		$(topMenuDiv).siblings("ul").toggle();
+//	}
 	
 function subMenuClick(tableSrc) {
     subTableId = tableSrc.id+"d";
