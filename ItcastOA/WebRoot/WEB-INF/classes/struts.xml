@@ -40,6 +40,17 @@
 			<result name="addUI">/WEB-INF/jsp/userAction/addUI.jsp</result>
 			<result name="editUI">/WEB-INF/jsp/userAction/editUI.jsp</result>
 			<result name="toList" type="redirectAction">userAction_list</result>
+			
+			
+			<result name="loginUI">/WEB-INF/jsp/userAction/loginUI.jsp</result>
+			<result name="logout">/WEB-INF/jsp/userAction/logout.jsp</result>
+			<result name="toIndex" type="redirect">/index.jsp</result>
+			
+		</action>
+		<!-- 首页 -->
+		<action name="homeAction_*" class="homeAction" method="{1}">
+		    <result name="{1}">/WEB-INF/jsp/homeAction/{1}.jsp</result>
+			
 		</action>
 	</package>
 

@@ -135,6 +135,45 @@ public class UserAction extends BaseAction<User> {
 		userService.update(user);
 		return "toList";
 	}
+	
+	
+	
+	/**
+     * 登录界面
+     * @return
+     * @throws Exception
+     */
+	public String loginUI() throws Exception {
+	
+		return "loginUI";
+	}
+	/**
+     * 登录
+     * @return
+     * @throws Exception
+     */
+	public String login() throws Exception {
+	   User user=userService.getByLoginNameAndPwd(model.getLoginName(),model.getPassword());
+	   if(user==null){
+		   addFieldError("login","用户名或密码不正确");
+		   return "loginUI";
+	   }else{
+		   ActionContext.getContext().getSession().put("user", user);
+		   return "toIndex";
+	   }
+		
+	}
+	
+	/**
+     * 注销界面
+     * @return
+     * @throws Exception
+     */
+	public String logout() throws Exception {
+		ActionContext.getContext().getSession().remove("user");
+	
+		return "logout";
+	}
 //=================================================
 
 	public Long getDepartmentId() {
