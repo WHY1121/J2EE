@@ -1,5 +1,6 @@
 package cn.itcast.oa.domain;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -11,7 +12,11 @@ import com.opensymphony.xwork2.ActionContext;
  * @author why
  * 
  */
-public class User {
+public class User implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Long id;
 	private Department department;
 	private Set<Role> roles = new HashSet<Role>();

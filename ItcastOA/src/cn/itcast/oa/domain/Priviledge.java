@@ -1,5 +1,6 @@
 package cn.itcast.oa.domain;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -8,8 +9,13 @@ import java.util.Set;
  * @author Why
  *
  */
-public class Priviledge {
+public class Priviledge implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private Long id;
 	
 	private String url;//路径
