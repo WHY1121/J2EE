@@ -21,5 +21,13 @@ public class PriviledgeServiceImpl extends BaseDaoImpl<Priviledge> implements Pr
 				.list();
 	}
 
+	@Override
+	public List<String> getAllPriviledgeUrl() {
+		
+		return getSession()
+				.createQuery("SELECT distinct p.url FROM Priviledge p WHERE p.url IS NOT NULL")
+				.list();
+	}
+
 	
 }

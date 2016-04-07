@@ -11,5 +11,10 @@ public interface PriviledgeService extends BaseDao<Priviledge>{
      * @return
      */
 	List<Priviledge> findTopList();
+     /**
+      * 返回数据库存储的url
+      * @return
+      */
+	List<String> getAllPriviledgeUrl();
 
 }

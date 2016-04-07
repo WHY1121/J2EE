@@ -29,6 +29,13 @@ public class InitServletContextListener implements ServletContextListener{
 		//准备所有顶级菜单项
 		List<Priviledge> priviledges=priviledgeService.findTopList();
 		application.setAttribute("priviledges", priviledges);
+		System.out.println("================菜单数据初始化完毕");
+		
+		//返回数据库存储的所有权限
+		List<String> allPriviledgeURls=priviledgeService.getAllPriviledgeUrl();
+		application.setAttribute("allPriviledgeURls", allPriviledgeURls);
+		System.out.println("================存储url初始化完毕");
+		
 		
 	}
 	@Override

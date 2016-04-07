@@ -1,7 +1,10 @@
 package cn.itcast.oa.domain;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+
+import com.opensymphony.xwork2.ActionContext;
 
 /**
  * 实体：实体用户
@@ -46,6 +49,40 @@ public class User {
 
 		return false;
 
+	}
+	/**
+	 * 判断本用户是否有URl的权限
+	 * @param privilegeUrl
+	 * @return
+	 */
+	public boolean hasPrivilegeByUrl(String privilegeUrl) {
+		/**
+		 *超级管理员
+		 */
+		if (isAdmin()) {
+			return true;
+		}
+		//新增，修改页面2个请求作为一个请求处理
+		if(privilegeUrl.endsWith("UI")){
+			privilegeUrl=privilegeUrl.substring(0, privilegeUrl.length()-2);	
+		}
+		//其他用户有权限返会true
+		List<String> priviledgeUrls=(List<String>) ActionContext.getContext().getApplication().get("allPriviledgeURls");
+		if(!priviledgeUrls.contains(privilegeUrl)){
+			return true;
+		}else{	
+	   //普通用户
+		for (Role role : roles) {
+			for (Priviledge priviledge : role.getPriviledges()) {
+				if (privilegeUrl.equals(priviledge.getUrl())) {
+					return true;
+				}
+			}
+		}
+		
+		return false;
+		}
+	
 	}
 	
 	private boolean isAdmin() {
@@ -131,5 +168,7 @@ public class User {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	
 
 }

@@ -58,10 +58,10 @@ public class Install {
 		session.save(new Priviledge("roleAction_edit","岗位修改",null,menu2));
 		
 		
-		session.save(new Priviledge("departmentAction_list","岗位列表",null,menu3));
-		session.save(new Priviledge("departmentAction_add","岗位添加",null,menu3));
-		session.save(new Priviledge("departmentAction_delete","岗位删除",null,menu3));
-		session.save(new Priviledge("departmentAction_edit","岗位修改",null,menu3));
+		session.save(new Priviledge("departmentAction_list","部门列表",null,menu3));
+		session.save(new Priviledge("departmentAction_add","部门添加",null,menu3));
+		session.save(new Priviledge("departmentAction_delete","部门删除",null,menu3));
+		session.save(new Priviledge("departmentAction_edit","部门修改",null,menu3));
 
 		
 		

@@ -8,6 +8,11 @@
 		$(function(){
 			document.forms[0].loginName.focus();
 		});
+		
+		//被嵌套是就刷新父级窗口
+		if(window.parent!=window){
+		   window.parent.location.reload(true);
+		}
 	</script>
 </head>
 
