@@ -13,7 +13,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import cn.itcast.oa.domain.Priviledge;
 import cn.itcast.oa.service.PriviledgeService;
 /**
- * 配置过滤器，初始化权限数据
+ * 配置监听器，初始化权限数据
  * @author fsdfsdsss
  *
  */
