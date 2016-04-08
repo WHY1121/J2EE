@@ -61,7 +61,7 @@ public class DepartmentAction extends BaseAction<Department>{
 		if(department.getParent()!=null){
 			parentId=department.getParent().getId();
 		}
-		return "editUI";
+		return "addUI";
 	}
 	public String edit() throws Exception{
 		Department department=departmentService.getById(model.getId());

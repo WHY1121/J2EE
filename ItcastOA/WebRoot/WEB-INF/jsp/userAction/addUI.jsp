@@ -19,7 +19,8 @@
 
 <!--显示表单内容-->
 <div id=MainArea>
-    <s:form action="userAction_add">
+    <s:form action="userAction_%{id==null? 'add':'edit'}">
+    <s:hidden name="id"></s:hidden>
         <div class="ItemBlock_Title1"><!-- 信息说明 --><div class="ItemBlock_Title1">
         	<img border="0" width="4" height="7" src="${pageContext.request.contextPath}/style/blue/images/item_point.gif" /> 用户信息 </div> 
         </div>

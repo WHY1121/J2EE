@@ -79,7 +79,7 @@ public class RoleAction extends BaseAction<Role> {
         
         Role role=roleService.getById(model.getId());
         ActionContext.getContext().getValueStack().push(role);
-		return "editUI";
+		return "addUI";
 	}
 	 /**
      * 修改权限

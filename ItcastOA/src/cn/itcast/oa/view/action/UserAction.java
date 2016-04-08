@@ -85,7 +85,7 @@ public class UserAction extends BaseAction<User> {
 		User user=userService.getById(model.getId());
 		ActionContext.getContext().put("dList", dList);
 		ActionContext.getContext().put("roleList", roleList);
-		ActionContext.getContext().put("user", user);
+		ActionContext.getContext().getValueStack().push(user);
 		if(user.getDepartment()!=null){
 			departmentId=user.getDepartment().getId();
 		}
@@ -97,7 +97,7 @@ public class UserAction extends BaseAction<User> {
 			}
 		}
 		
-		return "editUI";
+		return "addUI";
 	}
      /**
       * 修改
