@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 
 import cn.itcast.oa.domain.Department;
 import cn.itcast.oa.service.DepartmentService;
+import cn.itcast.oa.service.ForumManageService;
 import cn.itcast.oa.service.PriviledgeService;
 import cn.itcast.oa.service.RoleService;
 import cn.itcast.oa.service.UserService;
@@ -22,6 +23,8 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T>{
 	protected  UserService userService;
 	@Resource
 	protected  RoleService roleService;
+	@Resource
+	protected ForumManageService forumManageService;
 	
 	@Resource  
 	protected PriviledgeService priviledgeService;

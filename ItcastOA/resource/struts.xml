@@ -66,6 +66,14 @@
 		    <result name="{1}">/WEB-INF/jsp/homeAction/{1}.jsp</result>
 			
 		</action>
+		<!-- 板块管理 -->
+		<action name="forumManageAction_*" class="forumManageAction" method="{1}">
+			<result name="list">/WEB-INF/jsp/forumManageAction/list.jsp</result>
+			<result name="addUI">/WEB-INF/jsp/forumManageAction/addUI.jsp</result>
+			<result name="editUI">/WEB-INF/jsp/forumManageAction/editUI.jsp</result>
+			<result name="toList" type="redirectAction">forumManageAction_list</result>
+		</action>
+			
 	</package>
 
 </struts>
