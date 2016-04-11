@@ -34,7 +34,7 @@ public class Topic extends Article implements Serializable{
 	
 	private int replyCount;//回复数量
 	
-	private Reply lastreReply;//最后回复
+	private Reply lastReply;//最后回复
 	
 	private Date lastUpdateTime;//最后更新时间(主题发表时间或最后回复时间)
 
@@ -70,12 +70,12 @@ public class Topic extends Article implements Serializable{
 		this.replyCount = replyCount;
 	}
 
-	public Reply getLastreReply() {
-		return lastreReply;
+	public Reply getLastReply() {
+		return lastReply;
 	}
 
-	public void setLastreReply(Reply lastreReply) {
-		this.lastreReply = lastreReply;
+	public void setLastReply(Reply lastReply) {
+		this.lastReply = lastReply;
 	}
 
 	public Date getLastUpdateTime() {

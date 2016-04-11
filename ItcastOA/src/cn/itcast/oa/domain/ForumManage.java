@@ -1,6 +1,8 @@
 package cn.itcast.oa.domain;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 public class ForumManage implements Serializable{
 
@@ -16,6 +18,13 @@ public class ForumManage implements Serializable{
 	private String description;
 	
 	private int position;//上移下移的排序字段
+	
+	private Set<Topic> topics=new HashSet<Topic>();//多个主题
+	
+	private int topicCount;//文章数量
+	
+	private Topic lastTopic;//最后发表主题
+	
 
 	public Long getId() {
 		return id;
@@ -48,6 +57,32 @@ public class ForumManage implements Serializable{
 	public void setPosition(int position) {
 		this.position = position;
 	}
+
+	public Set<Topic> getTopics() {
+		return topics;
+	}
+
+	public void setTopics(Set<Topic> topics) {
+		this.topics = topics;
+	}
+
+	public int getTopicCount() {
+		return topicCount;
+	}
+
+	public void setTopicCount(int topicCount) {
+		this.topicCount = topicCount;
+	}
+
+	public Topic getLastTopic() {
+		return lastTopic;
+	}
+
+	public void setLastTopic(Topic lastTopic) {
+		this.lastTopic = lastTopic;
+	}
+	
+	
 	
 
 }

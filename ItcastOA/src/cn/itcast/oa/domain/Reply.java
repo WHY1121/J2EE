@@ -2,7 +2,7 @@ package cn.itcast.oa.domain;
 
 import java.io.Serializable;
 
-public class Reply implements Serializable{
+public class Reply extends Article implements Serializable{
 
 	
 	/**
