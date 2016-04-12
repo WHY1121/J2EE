@@ -26,7 +26,7 @@ public class Topic extends Article implements Serializable{
 	//置顶帖
 	public static final int TYPE_TOP=2;
 	
-	private ForumManage forumManage;//所属板块
+	private Forum forum;//所属板块
 	
 	private Set<Reply> replies=new HashSet<Reply>();
 	
@@ -38,12 +38,14 @@ public class Topic extends Article implements Serializable{
 	
 	private Date lastUpdateTime;//最后更新时间(主题发表时间或最后回复时间)
 
-	public ForumManage getForumManage() {
-		return forumManage;
+	
+
+	public Forum getForum() {
+		return forum;
 	}
 
-	public void setForumManage(ForumManage forumManage) {
-		this.forumManage = forumManage;
+	public void setForum(Forum forum) {
+		this.forum = forum;
 	}
 
 	public Set<Reply> getReplies() {

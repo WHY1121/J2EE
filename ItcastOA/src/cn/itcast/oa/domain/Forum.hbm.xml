@@ -5,13 +5,24 @@
 
 <hibernate-mapping package="cn.itcast.oa.domain">
 
-	<class name="ForumManage" table="itcast_forumManage">
+	<class name="Forum" table="itcast_forumManage">
 		<id name="id">
             <generator class="native"/>
 		</id>
 		<property name="name"/>
 		<property name="description"/>
 		<property name="position"/>
+		<property name="topicCount"/>
+		<property name="articleCount"/>
+		
+		<!-- topics属性，本类与Topic一对多关系 -->
+		<set name="topics">
+		<key column="forumId"></key>
+		<one-to-many class="Topic"/>
+		</set>
+		
+		<!-- lastTopic属性，本类与Topic为一对一的关系 -->
+		<many-to-one name="lastTopic" class="Topic" unique="true"></many-to-one>
 	</class>
 	
 </hibernate-mapping>

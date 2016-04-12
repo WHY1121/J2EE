@@ -69,6 +69,22 @@
 			<result name="addUI">/WEB-INF/jsp/forumManageAction/addUI.jsp</result>
 			<result name="toList" type="redirectAction">forumManageAction_list</result>
 		</action>
+		<!-- 板块 -->
+		<action name="forumAction_*" class="forumAction" method="{1}">
+			<result name="list">/WEB-INF/jsp/forumAction/list.jsp</result>
+		</action>
+		<!-- 主题 -->
+		<action name="topicAction_*" class="topicAction" method="{1}">
+			<result name="show">/WEB-INF/jsp/topicAction/show.jsp</result>
+			<result name="addUI">/WEB-INF/jsp/topicAction/addUI.jsp</result>
+			<result name="add">/WEB-INF/jsp/topicAction/toTopicShow.jsp</result>
+			
+		</action>
+		<!-- 回复 -->
+		<action name="replyAction_*" class="replyAction" method="{1}">
+			<result name="addUI">/WEB-INF/jsp/replyAction/addUI.jsp</result>
+			<result name="add">/WEB-INF/jsp/topicAction/toTopicShow.jsp</result>
+		</action>
 			
 	</package>
 

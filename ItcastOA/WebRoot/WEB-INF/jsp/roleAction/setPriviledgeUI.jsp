@@ -26,8 +26,7 @@
                  start.parent().parent().siblings("input").attr('checked',false);
                 
                 }
-               
-                
+  
                }
              }
          

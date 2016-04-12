@@ -9,18 +9,18 @@ import com.opensymphony.xwork2.ActionContext;
 
 
 import cn.itcast.oa.base.BaseAction;
-import cn.itcast.oa.domain.ForumManage;
+import cn.itcast.oa.domain.Forum;
 
 
 @Controller
 @Scope("prototype")
-public class ForumManageAction extends BaseAction<ForumManage>{
+public class ForumManageAction extends BaseAction<Forum>{
 
 	
 	
 	
 	public String list() throws Exception {
-	    List<ForumManage> foList=forumManageService.findAll();
+	    List<Forum> foList=forumManageService.findAll();
 	    ActionContext.getContext().put("foList", foList);
 		return "list";
 	}
@@ -58,7 +58,7 @@ public class ForumManageAction extends BaseAction<ForumManage>{
       * @throws Exception
       */
 	public String edit() throws Exception {
-		ForumManage fManage=forumManageService.getById(model.getId());
+		Forum fManage=forumManageService.getById(model.getId());
 		fManage.setName(model.getName());
 		fManage.setDescription(model.getDescription());
 		forumManageService.update(fManage);
@@ -70,7 +70,7 @@ public class ForumManageAction extends BaseAction<ForumManage>{
      * @throws Exception
      */
 	public String editUI() throws Exception {
-		ForumManage fManage=forumManageService.getById(model.getId());
+		Forum fManage=forumManageService.getById(model.getId());
 		ActionContext.getContext().getValueStack().push(fManage);
       
 		return "addUI";

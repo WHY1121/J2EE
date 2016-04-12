@@ -5,14 +5,14 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import cn.itcast.oa.base.BaseDaoImpl;
-import cn.itcast.oa.domain.ForumManage;
+import cn.itcast.oa.domain.Forum;
 import cn.itcast.oa.service.ForumManageService;
 
 @Service
-public class FroumManageServiceImpl extends BaseDaoImpl<ForumManage> implements ForumManageService{
+public class FroumManageServiceImpl extends BaseDaoImpl<Forum> implements ForumManageService{
 
 	@Override
-	public void save(ForumManage entity) {
+	public void save(Forum entity) {
 		//保存的数据库会自动生成id
 		getSession().save(entity);
 		//使用id做position的值自动增长
@@ -22,18 +22,18 @@ public class FroumManageServiceImpl extends BaseDaoImpl<ForumManage> implements 
 	}
 
 	@Override
-	public List<ForumManage> findAll() {
+	public List<Forum> findAll() {
 		
 		 return getSession()//
-				.createQuery("FROM ForumManage f ORDER BY f.position ASC")//
+				.createQuery("FROM Forum f ORDER BY f.position ASC")//
 				.list();
 	}
 
 	@Override
 	public void moveDown(Long id) {
-		ForumManage manage=getById(id);
-		ForumManage other=(ForumManage) getSession()
-				.createQuery("FROM ForumManage f WHERE f.position>? ORDER BY f.position ASC")
+		Forum manage=getById(id);
+		Forum other=(Forum) getSession()
+				.createQuery("FROM Forum f WHERE f.position>? ORDER BY f.position ASC")
 				.setFirstResult(0)
 				.setMaxResults(1)
 				.setParameter(0, manage.getPosition())
@@ -50,10 +50,10 @@ public class FroumManageServiceImpl extends BaseDaoImpl<ForumManage> implements 
 	@Override
 	public void moveUp(Long id) {
 		//移动的对象
-		ForumManage manage=getById(id);
+		Forum manage=getById(id);
 	    //从数据库查找移动对象的上一个对象
-		ForumManage other=(ForumManage) getSession()
-				.createQuery("FROM ForumManage f WHERE f.position<? ORDER BY f.position DESC")
+		Forum other=(Forum) getSession()
+				.createQuery("FROM Forum f WHERE f.position<? ORDER BY f.position DESC")
 				.setFirstResult(0)
 				.setMaxResults(1)
 				.setParameter(0, manage.getPosition())

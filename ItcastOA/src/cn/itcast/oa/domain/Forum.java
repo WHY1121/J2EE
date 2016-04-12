@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-public class ForumManage implements Serializable{
+public class Forum implements Serializable{
 
 	/**
 	 * 
@@ -21,7 +21,9 @@ public class ForumManage implements Serializable{
 	
 	private Set<Topic> topics=new HashSet<Topic>();//多个主题
 	
-	private int topicCount;//文章数量
+	private int topicCount;//主题数量
+	
+	private int articleCount;//文章数量
 	
 	private Topic lastTopic;//最后发表主题
 	
@@ -72,6 +74,13 @@ public class ForumManage implements Serializable{
 
 	public void setTopicCount(int topicCount) {
 		this.topicCount = topicCount;
+	}
+	public int getArticleCount() {
+		return articleCount;
+	}
+
+	public void setArticleCount(int articleCount) {
+		this.articleCount = articleCount;
 	}
 
 	public Topic getLastTopic() {
