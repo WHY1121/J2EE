@@ -56,7 +56,7 @@
 				<td width="3" class="ForumPageTableTitleLeft">&nbsp;</td>
 					<td class="ForumPageTableTitle"><b>本帖主题：${topic.title}</b></td>
 					<td class="ForumPageTableTitle" align="right" style="padding-right:12px;">
-						<s:a cssClass="detail" action="replyAction_addUI?topicId=%{topic.id}">
+						<s:a cssClass="detail" action="replyAction_addUI?topicId=%{#topic.id}">
 						<img border="0" src="${pageContext.request.contextPath}/style/images/reply.gif" />
 						回复</s:a>
 						<a href="moveUI.html"><img border="0" src="${pageContext.request.contextPath}/style/images/edit.gif" />移动到其他版块</a>
@@ -91,7 +91,7 @@
 								</li>
 								<!-- 文章表情与标题 -->
 								<li class="TopicSubject">
-									<img width="19" height="19" src="${pageContext.request.contextPath}/style/images/face/face1.gif"/>
+									<img width="19" height="19" src="${pageContext.request.contextPath}/style/images/face/face${topic.faceIcon }.gif"/>
 									${topic.title }
 								</li>
 							</ul>
@@ -142,7 +142,7 @@
 								</li>
 								<!-- 文章表情与标题 -->
 								<li class="TopicSubject">
-									<img width="19" height="19" src="${pageContext.request.contextPath}/style/images/face/${faceIcon}"/>
+									<img width="19" height="19" src="${pageContext.request.contextPath}/style/images/face/face${faceIcon}.gif"/>
 									${title}
 								</li>
 							</ul>

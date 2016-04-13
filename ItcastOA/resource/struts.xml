@@ -78,13 +78,12 @@
 		<action name="topicAction_*" class="topicAction" method="{1}">
 			<result name="addUI">/WEB-INF/jsp/topicAction/addUI.jsp</result>
 			<result name="show">/WEB-INF/jsp/topicAction/show.jsp</result>
-			<result name="add">/WEB-INF/jsp/topicAction/toShow.jsp</result>
-			
+			<result name="toShow" type="redirectAction">topicAction_show?id=%{id}</result>	
 		</action>
 		<!-- 回复 -->
 		<action name="replyAction_*" class="replyAction" method="{1}">
 			<result name="addUI">/WEB-INF/jsp/replyAction/addUI.jsp</result>
-			<result name="add">/WEB-INF/jsp/topicAction/toTopicShow.jsp</result>
+			<result name="toTopicShow" type="redirectAction">topicAction_show?id=%{topicId}</result>
 		</action>
 			
 	</package>
