@@ -7,13 +7,9 @@
 	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/style/blue/forum.css" />
 	
 	<script language="javascript" src="${pageContext.request.contextPath}/script/fckeditor/fckeditor.js" charset="utf-8"></script>
-    <script type="text/javascript">
+   <script type="text/javascript">
 		$(function(){
-			var fck = new FCKeditor("content");
-			fck.Width = "90%";
-			fck.ToolbarSet = "bbs";
-			fck.BasePath = "${pageContext.request.contextPath}/script/fckeditor/";
-			fck.ReplaceTextarea();
+	        CKEDITOR.replace('content');		
 		});
     </script>
 </head>
@@ -99,7 +95,7 @@
 					</tr>
 					<tr><!-- 文章内容 -->
 						<td valign="top" align="center">
-							<div class="Content">${topic.content }</div>
+							<div class="Content">${topic.content}</div>
 						</td>
 					</tr>
 					<tr><!--显示楼层等信息-->
@@ -224,13 +220,14 @@
 			
 	<!--快速回复-->
 	<div class="QuictReply">
-	<form action="">
+	<s:form action="replyAction_add">
+	<s:hidden name="topicId" value="%{#topic.id}"></s:hidden>
 		<div style="padding-left: 3px;">
 			<table border="0" cellspacing="1" width="98%" cellpadding="5" class="TableStyle">
 				<tr height="30" class="Tint">
 					<td width="50px" class="Deep"><b>标题</b></td>
 					<td class="no_color_bg">
-						<input type="text" name="title" class="InputStyle" value="回复：昨天发现在表单里删除的图片" style="width:90%"/>
+						<input type="text" name="title" class="InputStyle" value="回复：${topic.title }" style="width:90%"/>
 					</td>
 				</tr>
 				<tr height="30" class="Tint">
@@ -242,62 +239,12 @@
 							解决方法是：给图片img标签加上disabled即可。-->
 						<table cellpadding="0" border="0" cellspacing="0">
 							<tr>
+							<s:iterator begin="1" end="14" var="s">
 								<td width="50" style="border-bottom:0 solid #ffffff">
-									<input type="radio" name="faceIcon" value="1" id="r_1"/>
-									<label for="r_1"><img width="19" height="19" src="${pageContext.request.contextPath}/style/images/face/face1.gif" disabled="true" align="absmiddle"/></label>
+									<input type="radio" name="faceIcon" value="${s}" id="r_${s}"/>
+									<label for="r_${s}"><img width="19" height="19" src="${pageContext.request.contextPath}/style/images/face/face${s}.gif" disabled="true" align="absmiddle"/></label>
 								</td>
-								<td width="50" style="border-bottom:0 solid #ffffff">
-									<input type="radio" name="faceIcon" value="2" id="r_2"/>
-									<label for="r_2"><img width="19" height="19" src="${pageContext.request.contextPath}/style/images/face/face2.gif" disabled="true" align="absmiddle"/></label>
-								</td>
-								<td width="50" style="border-bottom:0 solid #ffffff">
-									<input type="radio" name="faceIcon" value="3" id="r_3"/>
-									<label for="r_3"><img width="19" height="19" src="${pageContext.request.contextPath}/style/images/face/face3.gif" disabled="true" align="absmiddle"/></label>
-								</td>
-								<td width="50" style="border-bottom:0 solid #ffffff">
-									<input type="radio" name="faceIcon" value="4" id="r_4"/>
-									<label for="r_4"><img width="19" height="19" src="${pageContext.request.contextPath}/style/images/face/face4.gif" disabled="true" align="absmiddle"/></label>
-								</td>
-								<td width="50" style="border-bottom:0 solid #ffffff">
-									<input type="radio" name="faceIcon" value="5" id="r_5"/>
-									<label for="r_5"><img width="19" height="19" src="${pageContext.request.contextPath}/style/images/face/face5.gif" disabled="true" align="absmiddle"/></label>
-								</td>
-								<td width="50" style="border-bottom:0 solid #ffffff">
-									<input type="radio" name="faceIcon" value="6" id="r_6"/>
-									<label for="r_6"><img width="19" height="19" src="${pageContext.request.contextPath}/style/images/face/face6.gif" disabled="true" align="absmiddle"/></label>
-								</td>
-								<td width="50" style="border-bottom:0 solid #ffffff">
-									<input type="radio" name="faceIcon" value="7" id="r_7"/>
-									<label for="r_7"><img width="19" height="19" src="${pageContext.request.contextPath}/style/images/face/face7.gif" disabled="true" align="absmiddle"/></label>
-								</td>
-								<td width="50" style="border-bottom:0 solid #ffffff">
-									<input type="radio" name="faceIcon" value="8" id="r_8"/>
-									<label for="r_8"><img width="19" height="19" src="${pageContext.request.contextPath}/style/images/face/face8.gif" align="absmiddle" disabled="true"/></label>
-								</td>
-								<td width="50" style="border-bottom:0 solid #ffffff">
-									<input type="radio" name="faceIcon" value="9" id="r_9"/>
-									<label for="r_9"><img width="19" height="19" src="${pageContext.request.contextPath}/style/images/face/face9.gif" align="absmiddle" disabled="true"/></label>
-								</td>
-								<td width="50" style="border-bottom:0 solid #ffffff">
-									<input type="radio" name="faceIcon" value="10" id="r_10"/>
-									<label for="r_10"><img width="19" height="19" src="${pageContext.request.contextPath}/style/images/face/face10.gif" align="absmiddle" disabled="true"/></label>
-								</td>
-								<td width="50" style="border-bottom:0 solid #ffffff">
-									<input type="radio" name="faceIcon" value="11" id="r_11"/>
-									<label for="r_11"><img width="19" height="19" src="${pageContext.request.contextPath}/style/images/face/face11.gif" align="absmiddle" disabled="true"/></label>
-								</td>
-								<td width="50" style="border-bottom:0 solid #ffffff">
-									<input type="radio" name="faceIcon" value="12" id="r_12"/>
-									<label for="r_12"><img width="19" height="19" src="${pageContext.request.contextPath}/style/images/face/face12.gif" align="absmiddle" disabled="true"/></label>
-								</td>
-								<td width="50" style="border-bottom:0 solid #ffffff">
-									<input type="radio" name="faceIcon" value="13" id="r_13"/>
-									<label for="r_13"><img width="19" height="19" src="${pageContext.request.contextPath}/style/images/face/face13.gif" align="absmiddle" disabled="true"/></label>
-								</td>
-								<td width="50" style="border-bottom:0 solid #ffffff">
-									<input type="radio" name="faceIcon" value="14" id="r_14"/>
-									<label for="r_14"><img width="19" height="19" src="${pageContext.request.contextPath}/style/images/face/face14.gif" align="absmiddle" disabled="true"/></label>
-								</td>
+							</s:iterator>
 							</tr>
 						</table></div>
 					</td>
@@ -305,7 +252,7 @@
 				<tr class="Tint" height="200">
 					<td valign="top" rowspan="2" class="Deep"><b>内容</b></td>
 					<td valign="top" class="no_color_bg">
-						<textarea name="content" style="width: 95%; height: 300px"></textarea>
+						<s:textarea name="content" cssStyle="width: 95%; height: 300px"></s:textarea>
 					</td>
 				</tr>
 				<tr height="30" class="Tint">
@@ -315,7 +262,7 @@
 				</tr>
 			</table>
 		</div>
-	</form>
+	</s:form>
 	</div>
 </div>
 

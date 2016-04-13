@@ -3,7 +3,7 @@
 <head>
 <title>导航菜单</title>
 <%@ include file="/WEB-INF/jsp/public/common.jsp"%>
-<script language="JavaScript" src="script/menu.js"></script>
+
 <link type="text/css" rel="stylesheet" href="style/blue/menu.css" />
 <script type="text/javascript">
 function menuClick(menu){
@@ -11,6 +11,7 @@ function menuClick(menu){
     $(menu).siblings("ul").toggle();
 }
 </script>
+<script language="JavaScript" src="script/menu.js"></script>
 </head>
 <body style="margin: 0">
 <div id="Menu">
