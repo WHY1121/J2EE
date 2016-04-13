@@ -36,7 +36,7 @@
 <!--显示表单内容-->
 <div id="MainArea">
 <s:form action="topicAction_add" style="margin: 0; padding: 0;">
-  <s:hidden name="forumId" value="%{id}"></s:hidden>
+  <s:hidden name="forumId"></s:hidden>
 	<div id="PageHead"></div>
 	<center>
 		<div class="ItemBlock_Title1">

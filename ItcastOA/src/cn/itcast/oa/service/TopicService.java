@@ -12,6 +12,6 @@ public interface TopicService extends BaseDao<Topic>{
      * @param forum
      * @return
      */
-	List<Topic> findAll(Forum forum);
+	List<Topic> findByForum(Forum forum);
 
 }

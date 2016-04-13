@@ -18,7 +18,7 @@ public class Article implements Serializable{
 	private String title;//标题
 	private String faceIcon;//表情
 	private String content;//内容
-	private Date  createDate ;//创建时间
+	private Date  createTime ;//创建时间
 	private User  author;//作者
 	private String ipAddr;//ip地址
 	
@@ -48,11 +48,12 @@ public class Article implements Serializable{
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Date getCreateDate() {
-		return createDate;
+	
+	public Date getCreateTime() {
+		return createTime;
 	}
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
 	}
 	public User getAuthor() {
 		return author;

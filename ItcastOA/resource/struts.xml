@@ -72,12 +72,13 @@
 		<!-- 板块 -->
 		<action name="forumAction_*" class="forumAction" method="{1}">
 			<result name="list">/WEB-INF/jsp/forumAction/list.jsp</result>
+			<result name="show">/WEB-INF/jsp/forumAction/show.jsp</result>
 		</action>
 		<!-- 主题 -->
 		<action name="topicAction_*" class="topicAction" method="{1}">
-			<result name="show">/WEB-INF/jsp/topicAction/show.jsp</result>
 			<result name="addUI">/WEB-INF/jsp/topicAction/addUI.jsp</result>
-			<result name="add">/WEB-INF/jsp/topicAction/toTopicShow.jsp</result>
+			<result name="show">/WEB-INF/jsp/topicAction/show.jsp</result>
+			<result name="add">/WEB-INF/jsp/topicAction/toShow.jsp</result>
 			
 		</action>
 		<!-- 回复 -->

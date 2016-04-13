@@ -12,7 +12,7 @@
 		<property name="title"/>
 		<property name="faceIcon"/>
 		<property name="content" type="text" length="65536"/>
-		<property name="createDate" type="date"/>
+		<property name="createTime" type="timestamp"/>
 		<property name="ipAddr"/>
 		<!-- author属性，本类与User为多对一的关系 -->
 		<many-to-one name="author" class="User" column="authorId"></many-to-one>

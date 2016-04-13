@@ -9,6 +9,7 @@ import com.opensymphony.xwork2.ActionContext;
 
 import cn.itcast.oa.base.BaseAction;
 import cn.itcast.oa.domain.Forum;
+import cn.itcast.oa.domain.Topic;
 @Controller
 @Scope("prototype")
 public class ForumAction extends BaseAction<Forum>{
@@ -24,5 +25,18 @@ public class ForumAction extends BaseAction<Forum>{
 		List<Forum> forums=forumService.findAll();
 		ActionContext.getContext().put("forums", forums);
 		return "list";
+	}
+	
+	/**
+	 * 主题展示
+	 * @return
+	 * @throws Exception
+	 */
+	public String show() throws Exception{
+		Forum forum=forumService.getById(model.getId());
+		ActionContext.getContext().put("forum",forum);
+		List<Topic> topiclList=topicService.findByForum(forum);
+		ActionContext.getContext().put("topicList", topiclList);
+		return "show";
 	}
 }
