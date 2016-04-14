@@ -14,6 +14,7 @@ import com.opensymphony.xwork2.ActionContext;
 
 import cn.itcast.oa.base.BaseAction;
 import cn.itcast.oa.domain.Forum;
+import cn.itcast.oa.domain.PageBean;
 import cn.itcast.oa.domain.Reply;
 import cn.itcast.oa.domain.Topic;
 import cn.itcast.oa.domain.User;
@@ -25,14 +26,21 @@ public class TopicAction extends BaseAction<Topic>{
 
 	private Long forumId;
 	
+	private int pageNum=1;
+	
 	
 	public String show() throws Exception{
 		//准备数据：主题
 		Topic topic=topicService.getById(model.getId());
 		ActionContext.getContext().put("topic", topic);
-		//准备数据：回复
-		List<Reply> replyList=replyService.findByTopic(topic);
-		ActionContext.getContext().put("replyList", replyList);
+//		//准备数据：回复
+//		List<Reply> replyList=replyService.findByTopic(topic);
+//		ActionContext.getContext().put("replyList", replyList);
+		
+		//准备数据：分页显示
+		PageBean pageBean=replyService.getPageBean(pageNum,topic);
+		//放入栈顶
+		ActionContext.getContext().getValueStack().push(pageBean);
 		
 		
 		
@@ -75,6 +83,21 @@ public class TopicAction extends BaseAction<Topic>{
 	public void setForumId(Long forumId) {
 		this.forumId = forumId;
 	}
+
+
+
+	public int getPageNum() {
+		return pageNum;
+	}
+
+
+
+	public void setPageNum(int pageNum) {
+		this.pageNum = pageNum;
+	}
+	
+	
+	
 	
 
 }
