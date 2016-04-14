@@ -4,6 +4,7 @@ import java.util.List;
 
 import cn.itcast.oa.base.BaseDao;
 import cn.itcast.oa.domain.Forum;
+import cn.itcast.oa.domain.PageBean;
 import cn.itcast.oa.domain.Topic;
 
 public interface TopicService extends BaseDao<Topic>{
@@ -12,6 +13,14 @@ public interface TopicService extends BaseDao<Topic>{
      * @param forum
      * @return
      */
+	@Deprecated
 	List<Topic> findByForum(Forum forum);
+    /**
+     * 根据板块查询主题列表
+     * @param pageNum
+     * @param forum
+     * @return
+     */
+	PageBean getPageBean(int pageNum, Forum forum);
 
 }

@@ -25,10 +25,7 @@ import cn.itcast.oa.domain.User;
 public class TopicAction extends BaseAction<Topic>{
 
 	private Long forumId;
-	
-	private int pageNum=1;
-	
-	
+
 	public String show() throws Exception{
 		//准备数据：主题
 		Topic topic=topicService.getById(model.getId());
@@ -86,16 +83,7 @@ public class TopicAction extends BaseAction<Topic>{
 
 
 
-	public int getPageNum() {
-		return pageNum;
-	}
 
-
-
-	public void setPageNum(int pageNum) {
-		this.pageNum = pageNum;
-	}
-	
 	
 	
 	

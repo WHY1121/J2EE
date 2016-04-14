@@ -43,6 +43,8 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T>{
 	
 	protected T model;
 	
+    protected int pageNum=1;
+     
 	public BaseAction() {
 		
 		try {
@@ -70,5 +72,15 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T>{
 				.getContext()
 				.getSession().get("user");
 	}
+   
+	public int getPageNum() {
+		return pageNum;
+	}
 
+
+
+	public void setPageNum(int pageNum) {
+		this.pageNum = pageNum;
+	}
+	
 }

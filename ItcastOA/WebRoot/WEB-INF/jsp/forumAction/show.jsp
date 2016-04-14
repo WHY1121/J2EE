@@ -67,7 +67,7 @@
 					
 				<!--主题列表-->
 				<tbody class="dataContainer" datakey="topicList">
-				<s:iterator value="#topicList">
+				<s:iterator value="recordList">
 					<tr height="35" id="d0" class="template">
 						<td></td>
 						<td class="ForumTopicPageDataLine" align="center"><img src="${pageContext.request.contextPath}/style/images/topicType_${type}.gif" /></td>
@@ -116,42 +116,12 @@
 </div>
 
 <!--分页信息-->
-<div id=PageSelectorBar>
-	<div id=PageSelectorMemo>
-		页次：7/13页 &nbsp;
-		每页显示：30条 &nbsp;
-		总记录数：385条
-	</div>
-	<div id=PageSelectorSelectorArea>
-		<!--
-		<IMG SRC="${pageContext.request.contextPath}/style/blue/images/pageSelector/firstPage2.png"/>
-		-->
-		<a href="javascript:void(0)" title="首页" style="cursor: hand;">
-			<img src="${pageContext.request.contextPath}/style/blue/images/pageSelector/firstPage.png"/></a>
-		
-		<span class="PageSelectorNum" style="cursor: hand;" onClick="gotoPageNum(2);">3</span>
-		<span class="PageSelectorNum" style="cursor: hand;" onClick="gotoPageNum(2);">4</span>
-		<span class="PageSelectorNum" style="cursor: hand;" onClick="gotoPageNum(2);">5</span>
-		<span class="PageSelectorNum" style="cursor: hand;" onClick="gotoPageNum(2);">6</span>
-		<span class="PageSelectorNum PageSelectorSelected">7</span>
-		<span class="PageSelectorNum" style="cursor: hand;" onClick="gotoPageNum(2);">8</span>
-		<span class="PageSelectorNum" style="cursor: hand;" onClick="gotoPageNum(2);">9</span>
-		<span class="PageSelectorNum" style="cursor: hand;" onClick="gotoPageNum(2);">10</span>
-		<span class="PageSelectorNum" style="cursor: hand;" onClick="gotoPageNum(2);">11</span>
-		<span class="PageSelectorNum" style="cursor: hand;" onClick="gotoPageNum(2);">12</span>
-		
-		<!--
-		<IMG SRC="${pageContext.request.contextPath}/style/blue/images/pageSelector/lastPage2.png"/>
-		-->
-		<a href="#" title="尾页" style="cursor: hand;">
-			<img src="${pageContext.request.contextPath}/style/blue/images/pageSelector/lastPage.png"/></a>
-		
-		转到：
-		<input onFocus="this.select();" maxlength="2" class="inputStyle" type="text" value="1" name="currPage" tabindex="0"/>
-		<input type="submit" name="goBtn" value="Go" class="MiddleButtonStyle" />
-	</div>
-</div>
-
+<%@ include file="/WEB-INF/jsp/public/pageView.jsp" %>
+       <script type="text/javascript">
+		   function gotoPage(pageNum){
+		      window.location.href="forumAction_show.action?id=${forum.id}&pageNum="+pageNum;
+		   }
+		</script>
 <div class="Description">
 	说明：<br />
 	1，主题默认按最后更新的时间降序排列。最后更新时间是指主题最后回复的时间，如果没有回复，就是主题发表的时间。<br />
