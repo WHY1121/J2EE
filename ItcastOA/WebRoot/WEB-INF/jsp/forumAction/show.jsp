@@ -32,7 +32,7 @@
         <div id="Title_End"></div>
     </div>
 </div>
-
+<s:form action="forumAction_show?id=%{id}">
 <div id="MainArea">
 	<div id="PageHead"></div>
 	<center>
@@ -45,7 +45,6 @@
 				<img align="absmiddle" src="${pageContext.request.contextPath}/style/blue/images/button/publishNewTopic.png"/></s:a>
 			</span>
 		</div>
-		
 		<div class="ForumPageTableBorder">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<!--表头-->
@@ -114,14 +113,10 @@
 		</div>
 	</center>
 </div>
+</s:form>
 
 <!--分页信息-->
 <%@ include file="/WEB-INF/jsp/public/pageView.jsp" %>
-       <script type="text/javascript">
-		   function gotoPage(pageNum){
-		      window.location.href="forumAction_show.action?id=${forum.id}&pageNum="+pageNum;
-		   }
-		</script>
 <div class="Description">
 	说明：<br />
 	1，主题默认按最后更新的时间降序排列。最后更新时间是指主题最后回复的时间，如果没有回复，就是主题发表的时间。<br />

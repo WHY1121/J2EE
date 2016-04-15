@@ -31,7 +31,9 @@ CKEDITOR.editorConfig = function( config ) {
 	//配置中文字体
 	config.font_names = '宋体;楷体_GB2312;黑体;隶书;Times New Roman;Arial' ;
 	//去掉左下角的body和p标签
-	config.removePlugins = 'elementspath';   
+	config.removePlugins = 'elementspath';
+	//预览区域显示内容
+	config.image_previewText=''; 
 	 //配置表情图片
 	 //表情的地址
     config.smiley_path =CKEDITOR.basePath+"plugins/smiley/images/";

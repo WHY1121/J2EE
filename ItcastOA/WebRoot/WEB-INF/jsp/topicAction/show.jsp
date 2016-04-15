@@ -169,12 +169,9 @@
 			<!-- ~~~~~~~~~~~~~~~ 显示回复列表结束 ~~~~~~~~~~~~~~~ -->
 		</div>
 		<!--分页信息-->
+		<s:form action="topicAction_show?id=%{id}"></s:form>
 		<%@ include file="/WEB-INF/jsp/public/pageView.jsp" %>
-		<script type="text/javascript">
-		   function gotoPage(pageNum){
-		      window.location.href="topicAction_show.action?id=${topic.id}&pageNum="+pageNum;
-		   }
-		</script>
+		
 
 		<div class="ForumPageTableBorder" style="margin-top: 25px;">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">

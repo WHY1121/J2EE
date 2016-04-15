@@ -47,6 +47,8 @@ public class ReplyServiceImpl extends BaseDaoImpl<Reply> implements ReplyService
 
 	@Override
 	public PageBean getPageBean(int pageNum, Topic topic) {
+		
+		
 		int pageSize=Configuration.getPageSize();
 		List<Reply> recordList=getSession()//
 				.createQuery("FROM Reply r WHERE r.topic=? order by createTime ASC")//

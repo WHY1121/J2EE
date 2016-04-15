@@ -21,6 +21,9 @@ public interface ReplyService extends BaseDao<Reply>{
      * @param topic
      * @return
      */
+	@Deprecated
 	PageBean getPageBean(int pageNum, Topic topic);
+	
+	
 
 }

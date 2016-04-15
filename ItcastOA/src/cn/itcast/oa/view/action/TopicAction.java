@@ -1,5 +1,6 @@
 package cn.itcast.oa.view.action;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -18,6 +19,7 @@ import cn.itcast.oa.domain.PageBean;
 import cn.itcast.oa.domain.Reply;
 import cn.itcast.oa.domain.Topic;
 import cn.itcast.oa.domain.User;
+import cn.itcast.oa.util.HqlHelper;
 
 
 @Controller
@@ -34,13 +36,22 @@ public class TopicAction extends BaseAction<Topic>{
 //		List<Reply> replyList=replyService.findByTopic(topic);
 //		ActionContext.getContext().put("replyList", replyList);
 		
-		//准备数据：分页显示
-		PageBean pageBean=replyService.getPageBean(pageNum,topic);
-		//放入栈顶
-		ActionContext.getContext().getValueStack().push(pageBean);
+//		//准备数据：分页显示
+//		PageBean pageBean=replyService.getPageBean(pageNum,topic);
+//		//放入栈顶
+//		ActionContext.getContext().getValueStack().push(pageBean);
+		//分页使用公共的方法
+//		String hql="FROM Reply r WHERE r.topic=? order by createTime ASC";
+//		Object[] parameters=new Object[]{topic};
+//		PageBean pageBean=replyService.getPageBean(pageNum,hql,parameters);
+//		ActionContext.getContext().getValueStack().push(pageBean);
 		
 		
-		
+		new HqlHelper(Reply.class,"r")
+		.addCondition("r.topic=?", topic)
+		.addOrderBy("r.createTime", true)
+		.buildPageBean(pageNum, replyService);
+
 		return "show";
 	}
 	

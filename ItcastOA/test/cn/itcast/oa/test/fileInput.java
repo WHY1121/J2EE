@@ -12,8 +12,11 @@ public class fileInput {
 
 	public static void main(String[] args) {
 
-		File file1 = new File("F:\\J2EE\\ItcastOA\\WebRoot\\WEB-INF\\lib");
-		readFile(file1);
+//		File file1 = new File("F:\\J2EE\\ItcastOA\\WebRoot\\WEB-INF\\lib");
+//		readFile(file1);
+		String hql="FROM Reply r WHERE r.topic=? order by createTime ASC";
+		System.out.println("SELECT COUNT(*) "+hql.substring(0,hql.indexOf("order"))+" ASC");
+		
 
 	}
 

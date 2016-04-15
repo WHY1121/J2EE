@@ -6,6 +6,7 @@ import cn.itcast.oa.base.BaseDao;
 import cn.itcast.oa.domain.Forum;
 import cn.itcast.oa.domain.PageBean;
 import cn.itcast.oa.domain.Topic;
+import cn.itcast.oa.util.HqlHelper;
 
 public interface TopicService extends BaseDao<Topic>{
     /**
@@ -21,6 +22,8 @@ public interface TopicService extends BaseDao<Topic>{
      * @param forum
      * @return
      */
+    @Deprecated
 	PageBean getPageBean(int pageNum, Forum forum);
+	
 
 }
