@@ -102,7 +102,7 @@
 							<td></td>
 							<s:select name="viewType" list="#{0:'全部主题', 1:'全部精华贴',2:'当天的主题',3:'本周的主题',4:'本月的主题'}"/>
 						    <s:select name="orderBy" onchange="onSortByChange(this.value)" list="#{0:'默认排序（按最后更新时间排序，但所有置顶帖都在前面）', 1:'按最后更新时间排序',2:'按主题发表时间排序',3:'按回复数量排序'}"/>
-				    		 <s:select name="asc" list="#{true:'降序', false:'降序'}"/>
+				    		 <s:select name="asc" list="#{true:'升序', false:'降序'}"/>
 								<input type="IMAGE" src="${pageContext.request.contextPath}/style/blue/images/button/submit.PNG" align="ABSMIDDLE"/>
 							</td>
 						</tr>

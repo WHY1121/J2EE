@@ -76,9 +76,9 @@ public class ForumAction extends BaseAction<Forum> {
 	new HqlHelper(Topic.class,"t")
 	    .addCondition("t.forum=?", forum)
 		.addCondition(viewType==1,"t.type=?", Topic.TYPE_BEST)//1:'全部精华贴
-//		.addCondition(viewType==2,"t.createTime=?", 2)   //2:'当天的主题          	
-//		.addCondition(viewType==3,"t.createTime=?", 3)      //3:'本周的主题        	
-//		.addCondition(viewType==4,"t.createTime=?", 4)        	//4:'本月的主题      	
+		.addCondition(viewType==2,"DATEDIFF(t.createTime,NOW()) =0")   //2:'当天的主题          	
+		.addCondition(viewType==3,"month(t.createTime) =month(curdate()) and week(t.createTime) = week(curdate())")      //3:'本周的主题        	
+		.addCondition(viewType==4,"month(t.createTime) =month(curdate()) and year(t.createTime) = year(curdate())")        	//4:'本月的主题      	
 		.addOrderBy(orderBy==0,"(CASE t.type WHEN 2 then 2 ELSE 0 END)", false)  
 		.addOrderBy(orderBy==0,"t.lastUpdateTime", false)    //    * 0:'默认排序（按最后更新时间排序，但所有置顶帖都在前面）
 		.addOrderBy(orderBy==1, "t.lastUpdateTime", asc)//	  * 1:'按最后更新时间排序
@@ -86,11 +86,37 @@ public class ForumAction extends BaseAction<Forum> {
 		.addOrderBy(orderBy==3, "t.replyCount", asc)// * 3:'按回复数量排序'
 		.buildPageBean(pageNum,topicService);//struct2环境使用	  
 		
-		
-		
-		 
-		
-		                           	                 
+                           	                 
 		return "show";                                           
 	}
+	
+	//===================================================================
+
+	public int getViewType() {
+		return viewType;
+	}
+
+	public void setViewType(int viewType) {
+		this.viewType = viewType;
+	}
+
+	public int getOrderBy() {
+		return orderBy;
+	}
+
+	public void setOrderBy(int orderBy) {
+		this.orderBy = orderBy;
+	}
+
+	public boolean isAsc() {
+		return asc;
+	}
+
+	public void setAsc(boolean asc) {
+		this.asc = asc;
+	}
+	
+	
+	
+	
 }

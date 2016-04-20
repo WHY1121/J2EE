@@ -55,10 +55,20 @@
 						<s:a cssClass="detail" action="replyAction_addUI?topicId=%{#topic.id}">
 						<img border="0" src="${pageContext.request.contextPath}/style/images/reply.gif" />
 						回复</s:a>
-						<a href="moveUI.html"><img border="0" src="${pageContext.request.contextPath}/style/images/edit.gif" />移动到其他版块</a>
-						<a href="#" onClick="return confirm('要把本主题设为精华吗？')"><img border="0" src="${pageContext.request.contextPath}/style/images/forum_hot.gif" />精华</a>
-						<a href="#" onClick="return confirm('要把本主题设为置顶吗？')"><img border="0" src="${pageContext.request.contextPath}/style/images/forum_top.gif" />置顶</a>
-						<a href="#" onClick="return confirm('要把本主题设为普通吗？')"><img border="0" src="${pageContext.request.contextPath}/style/images/forum_comm.gif" />普通</a>
+						<s:a action="topicAction_moveUI?id=%{id}"><img border="0" src="${pageContext.request.contextPath}/style/images/edit.gif" />移动到其他版块</s:a>
+						
+						<s:if test="#topic.type == 0">
+						<s:a action="topicAction_setType?id=%{id}" onClick="return confirm('要把本主题设为精华吗？')"><img border="0" src="${pageContext.request.contextPath}/style/images/forum_hot.gif" />精华</s:a>
+						<a action="topicAction_setType?id=%{id}" onClick="return confirm('要把本主题设为置顶吗？')"><img border="0" src="${pageContext.request.contextPath}/style/images/forum_top.gif" />置顶</a>
+						</s:if>
+						<s:if test="#topic.type  == 1">
+						<s:a action="topicAction_setType?id=%{id}" onClick="return confirm('要把本主题设为普通吗？')"><img border="0" src="${pageContext.request.contextPath}/style/images/forum_comm.gif" />普通</s:a>
+					    <s:a action="topicAction_setType?id=%{id}" onClick="return confirm('要把本主题设为置顶吗？')"><img border="0" src="${pageContext.request.contextPath}/style/images/forum_top.gif" />置顶</s:a>
+					    </s:if>
+					    <s:if test="#topic.type == 2">
+						<s:a action="topicAction_setType?id=%{id}" onClick="return confirm('要把本主题设为普通吗？')"><img border="0" src="${pageContext.request.contextPath}/style/images/forum_comm.gif" />普通</s:a>
+					    <s:a action="topicAction_setType?id=%{id}" onClick="return confirm('要把本主题设为精华吗？')"><img border="0" src="${pageContext.request.contextPath}/style/images/forum_hot.gif" />精华</s:a>
+					    </s:if>
 					</td>
 					<td width="3" class="ForumPageTableTitleRight">&nbsp;</td>
 				</tr>

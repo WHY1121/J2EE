@@ -58,6 +58,36 @@ public class TopicServiceImpl extends BaseDaoImpl<Topic> implements TopicService
 		
 		return new PageBean(pageNum, pageSize, recordList, count.intValue());
 	}
+
+	@Override
+	public void update(Topic topic, Forum forum) {
+		
+		
+		
+		// 维护关联关系
+		// 原来的forum
+		Forum forum2 = topic.getForum();
+		forum2.setArticleCount(forum2.getArticleCount() - 1);
+		forum2.setTopicCount(forum2.getTopicCount() - 1);
+		//移动最后一个主题
+		if(topic.equals(forum2.getLastTopic())){
+			forum2.setLastTopic(null);	
+		}
+		
+		//修改
+		topic.setForum(forum);
+		getSession().update(topic);
+		getSession().update(forum2);
+		
+		
+		
+        //转移的forum
+		forum.setArticleCount(forum.getArticleCount() + 1);
+		forum.setTopicCount(forum.getTopicCount() + 1);
+		
+		
+		getSession().update(forum);
+	}
 	
 	
 

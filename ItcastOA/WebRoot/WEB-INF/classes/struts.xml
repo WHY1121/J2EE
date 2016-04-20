@@ -78,6 +78,7 @@
 		<action name="topicAction_*" class="topicAction" method="{1}">
 			<result name="addUI">/WEB-INF/jsp/topicAction/addUI.jsp</result>
 			<result name="show">/WEB-INF/jsp/topicAction/show.jsp</result>
+			<result name="moveUI">/WEB-INF/jsp/topicAction/moveUI.jsp</result>
 			<result name="toShow" type="redirectAction">topicAction_show?id=%{id}</result>	
 		</action>
 		<!-- 回复 -->

@@ -24,6 +24,12 @@ public interface TopicService extends BaseDao<Topic>{
      */
     @Deprecated
 	PageBean getPageBean(int pageNum, Forum forum);
+    /**
+     * 修改
+     * @param topic
+     * @param forum
+     */
+	void update(Topic topic, Forum forum);
 	
 
 }

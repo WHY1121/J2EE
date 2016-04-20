@@ -6,6 +6,7 @@ import java.util.List;
 import com.opensymphony.xwork2.ActionContext;
 
 import cn.itcast.oa.base.BaseDao;
+import cn.itcast.oa.base.BaseDaoImpl;
 import cn.itcast.oa.domain.PageBean;
 import cn.itcast.oa.service.TopicService;
 

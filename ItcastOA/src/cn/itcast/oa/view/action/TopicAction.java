@@ -83,6 +83,42 @@ public class TopicAction extends BaseAction<Topic>{
 		topicService.save(model);
 		return "toShow";
 	}
+	/**
+	 * 转移帖子页面
+	 * @return
+	 * @throws Exception
+	 */
+	public String moveUI() throws Exception{
+		//显示板块信息
+		List<Forum> forum=forumService.findAll();
+		ActionContext.getContext().put("forum",forum);
+		//显示帖子主题
+		Topic topic=topicService.getById(model.getId());
+		ActionContext.getContext().put("topic", topic);
+		
+		return "moveUI";
+	}
+	/**
+	 * 转移
+	 * @return
+	 * @throws Exception
+	 */
+	public String move() throws Exception{
+	
+		//转移的forum
+		Forum forum=forumService.getById(forumId);
+		//查询主题
+		Topic topic=topicService.getById(model.getId());
+		topicService.update(topic,forum);
+		
+		
+		
+		return "toShow";
+	}
+	
+	
+	
+	
 	
 	///============================
 	public Long getForumId() {
