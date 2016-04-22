@@ -52,6 +52,13 @@
 	</bean>
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
+	
+	<!-- 注入jbpm的processEngine -->
+    <bean id="springHelper" class="org.jbpm.pvm.internal.processengine.SpringHelper">
+	       <property name="jbpmCfg" value="jbpm.cfg.xml"></property>
+    </bean>
 
+	<bean id="processEngine" factory-bean="springHelper"
+		factory-method="createProcessEngine" />
 
 </beans>
