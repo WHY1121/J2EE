@@ -28,6 +28,7 @@
 	<mapping resource="cn/itcast/oa/domain/Forum.hbm.xml" />
 	<mapping resource="cn/itcast/oa/domain/Reply.hbm.xml" />
 	<mapping resource="cn/itcast/oa/domain/Topic.hbm.xml" />
+	<mapping resource="cn/itcast/oa/domain/ApplicationTemplate.hbm.xml" />
 
 
 </session-factory>

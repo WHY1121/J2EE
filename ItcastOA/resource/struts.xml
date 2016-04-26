@@ -97,8 +97,20 @@
 			<result name="downloadImage" type="stream">
 			   <param name="contentType">image/png</param>
 			   <param name="inputName">inputStream</param>
-			
 			</result>
+		</action>
+		<!-- 申请模版管理 -->
+		<action name="applicationTemplateAction_*" class="applicationTemplateAction" method="{1}">
+			<result name="list">/WEB-INF/jsp/applicationTemplateAction/list.jsp</result>
+			<result name="saveUI">/WEB-INF/jsp/applicationTemplateAction/saveUI.jsp</result>
+			<result name="toList" type="redirectAction">applicationTemplateAction_list</result>
+			<!-- 下载图片配置结果 -->
+			<result name="download" type="stream">
+			   <param name="contentType">application/octet-stream</param>
+			   <param name="inputName">inputStream</param>
+			   <param name="contentDisposition">attachment;filename="${#fileName}.doc"</param>
+			</result>
+			
 		</action>
 			
 	</package>
