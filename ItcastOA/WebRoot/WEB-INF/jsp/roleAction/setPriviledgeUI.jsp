@@ -29,12 +29,28 @@
   
                }
              }
-         
+             //取消任意一个就把全选按钮变为空
+         var allEle=document.getElementById("cbSelectAll");
+         var pIdEle=document.getElementsByName("priviledgeIds");
+         allEle.checked=pIdEle.length==checkPriviledgeIdNum(); 
             
         });
+        function checkPriviledgeIdNum(){
+           var pIdEle=document.getElementsByName("priviledgeIds");
+           var count=0;
+           for(var i=0;i<pIdEle.length;i++){
+           
+              if(pIdEle[i]){
+                 count++;
+              }
+              return count;
+           }
+        }
                    
-     });    
+     });   
+     
      </script>
+
 </head>
 <body>
 
@@ -66,7 +82,7 @@
 						<tr align="LEFT" valign="MIDDLE" id="TableTitle">
 							<td width="300px" style="padding-left: 7px;">
 								<!-- 如果把全选元素的id指定为selectAll，并且有函数selectAll()，就会有错。因为有一种用法：可以直接用id引用元素 -->
-								<input type="CHECKBOX" id="cbSelectAll" onClick="$('[name=priviledgeIds]').attr('checked',this.checked)"/>
+								<input type="CHECKBOX" id="cbSelectAll" onclick="$('[name=priviledgeIds]').attr('checked',this.checked);"/>
 								<label for="cbSelectAll">全选</label>
 							</td>
 						</tr>

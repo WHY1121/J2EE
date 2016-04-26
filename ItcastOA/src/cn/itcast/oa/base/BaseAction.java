@@ -1,15 +1,15 @@
 package cn.itcast.oa.base;
 
-import java.lang.reflect.ParameterizedType;
-
 import javax.annotation.Resource;
 
-import cn.itcast.oa.domain.Department;
+
+
 import cn.itcast.oa.domain.User;
 import cn.itcast.oa.service.DepartmentService;
 import cn.itcast.oa.service.ForumManageService;
 import cn.itcast.oa.service.ForumService;
 import cn.itcast.oa.service.PriviledgeService;
+import cn.itcast.oa.service.ProcessDefinitionService;
 import cn.itcast.oa.service.ReplyService;
 import cn.itcast.oa.service.RoleService;
 import cn.itcast.oa.service.TopicService;
@@ -19,9 +19,7 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-@SuppressWarnings("unchecked")
-public class BaseAction<T> extends ActionSupport implements ModelDriven<T>{
-	
+public class BaseAction extends ActionSupport{
 	@Resource
 	protected  DepartmentService departmentService;
 	@Resource
@@ -41,28 +39,23 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T>{
 	@Resource  
 	protected PriviledgeService priviledgeService;
 	
-	protected T model;
+	@Resource
+	protected ProcessDefinitionService processDefinitionService;
+	
+	
 	
     protected int pageNum=1;
-     
-	public BaseAction() {
-		
-		try {
-			ParameterizedType psType=(ParameterizedType)this.getClass()
-					.getGenericSuperclass();
-			Class clzz=(Class)psType.getActualTypeArguments()[0];
-			model=(T) clzz.newInstance();
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}
+    
+    public int getPageNum() {
+		return pageNum;
 	}
 
 
-	@Override
-	public T getModel() {
-		return model;
+
+	public void setPageNum(int pageNum) {
+		this.pageNum = pageNum;
 	}
-	/**
+    /**
 	 * 获取session里的user
 	 * @return
 	 */
@@ -72,15 +65,5 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T>{
 				.getContext()
 				.getSession().get("user");
 	}
-   
-	public int getPageNum() {
-		return pageNum;
-	}
 
-
-
-	public void setPageNum(int pageNum) {
-		this.pageNum = pageNum;
-	}
-	
 }

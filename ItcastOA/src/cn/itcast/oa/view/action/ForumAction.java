@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 
 import com.opensymphony.xwork2.ActionContext;
 
-import cn.itcast.oa.base.BaseAction;
+import cn.itcast.oa.base.ModelBaseAction;
 import cn.itcast.oa.domain.Forum;
 import cn.itcast.oa.domain.PageBean;
 import cn.itcast.oa.domain.Topic;
@@ -15,7 +15,7 @@ import cn.itcast.oa.util.HqlHelper;
 
 @Controller
 @Scope("prototype")
-public class ForumAction extends BaseAction<Forum> {
+public class ForumAction extends ModelBaseAction<Forum> {
 
 	/**
 	 * 0:'全部主题'<br>

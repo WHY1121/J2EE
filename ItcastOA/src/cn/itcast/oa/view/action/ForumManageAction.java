@@ -7,14 +7,13 @@ import org.springframework.stereotype.Controller;
 
 import com.opensymphony.xwork2.ActionContext;
 
-
-import cn.itcast.oa.base.BaseAction;
+import cn.itcast.oa.base.ModelBaseAction;
 import cn.itcast.oa.domain.Forum;
 
 
 @Controller
 @Scope("prototype")
-public class ForumManageAction extends BaseAction<Forum>{
+public class ForumManageAction extends ModelBaseAction<Forum>{
 
 	
 	

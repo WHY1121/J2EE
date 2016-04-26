@@ -9,7 +9,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import cn.itcast.oa.base.BaseAction;
+import cn.itcast.oa.base.ModelBaseAction;
 import cn.itcast.oa.domain.Department;
 import cn.itcast.oa.domain.Role;
 import cn.itcast.oa.domain.User;
@@ -19,7 +19,7 @@ import com.opensymphony.xwork2.ActionContext;
 
 @Controller
 @Scope("prototype")
-public class UserAction extends BaseAction<User> {
+public class UserAction extends ModelBaseAction<User> {
      
 	private Long departmentId;
 	private Long[] roleIds;

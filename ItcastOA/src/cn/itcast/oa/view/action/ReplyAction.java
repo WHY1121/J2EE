@@ -8,13 +8,13 @@ import org.springframework.stereotype.Controller;
 
 import com.opensymphony.xwork2.ActionContext;
 
-import cn.itcast.oa.base.BaseAction;
+import cn.itcast.oa.base.ModelBaseAction;
 import cn.itcast.oa.domain.Reply;
 import cn.itcast.oa.domain.Topic;
 
 @Controller
 @Scope("prototype")
-public class ReplyAction extends BaseAction<Reply>{
+public class ReplyAction extends ModelBaseAction<Reply>{
      
 	private Long topicId;
 	/**

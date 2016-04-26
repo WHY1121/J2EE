@@ -8,7 +8,7 @@ import javax.swing.text.html.ListView;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
-import cn.itcast.oa.base.BaseAction;
+import cn.itcast.oa.base.ModelBaseAction;
 import cn.itcast.oa.domain.Priviledge;
 import cn.itcast.oa.domain.Role;
 import com.opensymphony.xwork2.ActionContext;
@@ -17,7 +17,7 @@ import com.opensymphony.xwork2.ActionContext;
 
 @Controller
 @Scope("prototype")
-public class RoleAction extends BaseAction<Role> {
+public class RoleAction extends ModelBaseAction<Role> {
 	
      private Long[] priviledgeIds;
 	/**

@@ -13,7 +13,7 @@ import org.springframework.stereotype.Controller;
 
 import com.opensymphony.xwork2.ActionContext;
 
-import cn.itcast.oa.base.BaseAction;
+import cn.itcast.oa.base.ModelBaseAction;
 import cn.itcast.oa.domain.Forum;
 import cn.itcast.oa.domain.PageBean;
 import cn.itcast.oa.domain.Reply;
@@ -24,7 +24,7 @@ import cn.itcast.oa.util.HqlHelper;
 
 @Controller
 @Scope("prototype")
-public class TopicAction extends BaseAction<Topic>{
+public class TopicAction extends ModelBaseAction<Topic>{
 
 	private Long forumId;
 

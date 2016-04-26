@@ -5,7 +5,8 @@ import java.util.List;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import cn.itcast.oa.base.BaseAction;
+
+import cn.itcast.oa.base.ModelBaseAction;
 import cn.itcast.oa.domain.Department;
 import cn.itcast.oa.util.DepartmentUtil;
 
@@ -14,7 +15,7 @@ import com.opensymphony.xwork2.ActionContext;
 
 @Controller
 @Scope("prototype")
-public class DepartmentAction extends BaseAction<Department>{
+public class DepartmentAction extends ModelBaseAction<Department>{
     
 	private Long parentId;
 	
