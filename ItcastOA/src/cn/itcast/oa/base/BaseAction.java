@@ -12,6 +12,7 @@ import org.apache.struts2.ServletActionContext;
 
 
 import cn.itcast.oa.domain.User;
+import cn.itcast.oa.service.ApplicationService;
 import cn.itcast.oa.service.ApplicationTemplateService;
 import cn.itcast.oa.service.DepartmentService;
 import cn.itcast.oa.service.ForumManageService;
@@ -48,7 +49,8 @@ public class BaseAction extends ActionSupport{
 	protected ProcessDefinitionService processDefinitionService;
 	@Resource
 	protected ApplicationTemplateService applicationTemplateService;
-	
+	@Resource
+	protected ApplicationService applicationService;
 	
 	
     protected int pageNum=1;

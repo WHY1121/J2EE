@@ -12,6 +12,14 @@
 		<property name="name"/>
 		<property name="processDefinitionKey"/>
 		<property name="path"></property>
+		
+		
+		
+		<!-- applications属性，本类与Application为一对多的关系 -->
+        <set name="applications">
+             <key column="applicationTemplateId"></key>
+             <one-to-many class="Application"/>         
+        </set>		
 	</class>
 	
 </hibernate-mapping>

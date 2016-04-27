@@ -18,13 +18,14 @@ import org.springframework.stereotype.Controller;
 
 import com.opensymphony.xwork2.ActionContext;
 
+import cn.itcast.oa.base.BaseAction;
 import cn.itcast.oa.base.ModelBaseAction;
 import cn.itcast.oa.domain.ApplicationTemplate;
 
 @Controller
 @Scope("prototype")
 public class ApplicationTemplateAction extends
-		ModelBaseAction<ApplicationTemplate> {
+		ModelBaseAction<ApplicationTemplate>{
 
 	private File upload;// 上传文件
 	private InputStream inputStream;

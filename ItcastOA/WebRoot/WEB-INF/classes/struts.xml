@@ -110,7 +110,19 @@
 			   <param name="inputName">inputStream</param>
 			   <param name="contentDisposition">attachment;filename="${#fileName}.doc"</param>
 			</result>
+		</action>
 			
+			<!-- 审批流转：申请流转 -->
+		<action name="flowAction_*" class="flowAction" method="{1}">
+			<result name="applicationTemplateList">/WEB-INF/jsp/flowAction/applicationTemplateList.jsp</result>
+			<result name="submitUI">/WEB-INF/jsp/flowAction/submitUI.jsp</result>
+			<result name="myApplicationList">/WEB-INF/jsp/flowAction/myApplicationList.jsp</result>
+			<result name="toMyApplicationList" type="redirectAction">flowAction_myApplicationList</result>
+
+			<result name="myTaskList">/WEB-INF/jsp/flowAction/myTaskList.jsp</result>
+			<result name="approveUI">/WEB-INF/jsp/flowAction/approveUI.jsp</result>
+			<result name="approveHistory">/WEB-INF/jsp/flowAction/approveHistory.jsp</result>
+			<result name="toMyTaskList" type="redirectAction">flowAction_myTaskList</result>
 		</action>
 			
 	</package>
