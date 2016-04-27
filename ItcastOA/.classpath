@@ -58,7 +58,7 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm-jboss.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm-test-db-tests.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm-tomcat6.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jbpm.jar" sourcepath="C:/Users/fsdfsdsss/Desktop/jbpm-4.4.zip"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/joda-time.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jta.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/livetribe-jsr223.jar"/>

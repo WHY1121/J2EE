@@ -80,8 +80,7 @@
 				<td>${applicant.name}&nbsp;</td>
 				<td>${applyTime}&nbsp;</td>
 				<td>${status}&nbsp;</td>
-				<td><a href="${pageContext.request.contextPath}/Flow_Formflow/showForm.html">查看申请信息</a>
-					<a href="${pageContext.request.contextPath}/Flow_Formflow/approvedHistory.html">查看流转记录</a>
+				<td><s:a action="flowAction_approveHistory?applicationId=%{id}">查看流转记录</s:a>
 				</td>
 			</tr>
 		  </s:iterator>
